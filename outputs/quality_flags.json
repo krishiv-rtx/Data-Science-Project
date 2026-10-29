@@ -1,0 +1,26 @@
+{
+  "verified_footer_rows": 32,
+  "negative_dti": 2,
+  "dti_equal_999": 135,
+  "revol_util_above_100": 7343,
+  "negative_income": 0,
+  "zero_income": 1667,
+  "negative_loan_amount": 0,
+  "terminal_negative_dti": 2,
+  "dti_nonnegative_sensitivity": {
+    "rule": "Exclude negative DTI only; primary remains unchanged; descriptive sensitivity, not an additional declared test",
+    "summary": {
+      "n_a": 268488,
+      "n_b": 1076446,
+      "mean_a": 20.17119629182682,
+      "mean_b": 17.811664272987215,
+      "sd_a": 11.831746843186517,
+      "sd_b": 10.93590736191658,
+      "estimate": 2.359532018839605,
+      "se": 0.02514961335764992,
+      "ci_low": 2.310239529717439,
+      "ci_high": 2.4088245079617714
+    }
+  },
+  "verified_separator_rows": 1
+}

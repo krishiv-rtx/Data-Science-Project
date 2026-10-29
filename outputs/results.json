@@ -1,0 +1,135 @@
+[
+  {
+    "n_a": 268559,
+    "n_b": 1076751,
+    "mean_a": 15.710713623449596,
+    "mean_b": 12.623288281134634,
+    "sd_a": 4.910386955715773,
+    "sd_b": 4.52722732525432,
+    "estimate": 3.087425342314962,
+    "se": 0.010431555494921148,
+    "statistic": 295.9697950912641,
+    "df": 390129.88391990674,
+    "p": null,
+    "ci_low": 3.0669798058106066,
+    "ci_high": 3.107870878819317,
+    "test": "int_rate",
+    "method": "Welch t",
+    "units": "percentage points",
+    "threshold": 1.0,
+    "excluded": 0,
+    "p_display": "< 2.23e-308 (floating-point underflow)",
+    "holm_p_display": "< 2.23e-308 (floating-point underflow)",
+    "holm_reject": true,
+    "decision": "Reject H0",
+    "practical": "CI beyond positive threshold",
+    "p_underflow": true
+  },
+  {
+    "n_a": 268488,
+    "n_b": 1076448,
+    "mean_a": 20.17119629182682,
+    "mean_b": 17.811629321620735,
+    "sd_a": 11.831746843186517,
+    "sd_b": 10.935927263825466,
+    "estimate": 2.3595669702060853,
+    "se": 0.025149617293220985,
+    "statistic": 93.8211879209033,
+    "df": 390672.20750028547,
+    "p": null,
+    "ci_low": 2.3102744733704106,
+    "ci_high": 2.40885946704176,
+    "test": "dti",
+    "method": "Welch t",
+    "units": "percentage points",
+    "threshold": 2.0,
+    "excluded": 374,
+    "p_display": "< 2.23e-308 (floating-point underflow)",
+    "holm_p_display": "< 2.23e-308 (floating-point underflow)",
+    "holm_reject": true,
+    "decision": "Reject H0",
+    "practical": "CI beyond positive threshold",
+    "p_underflow": true
+  },
+  {
+    "n": 1345310,
+    "estimate": 0.2619103197696805,
+    "statistic": 92284.25105933327,
+    "df": 6,
+    "p": null,
+    "ci_low": 0.26028717063124773,
+    "ci_high": 0.2634500553863387,
+    "min_expected": 1822.985622644595,
+    "bootstrap_replicates": 1000,
+    "ci_method": "IID multinomial percentile bootstrap of Cramers V; extension",
+    "expected": [
+      [
+        46930.101842697964,
+        188159.89815730203
+      ],
+      [
+        78401.35747076882,
+        314339.6425292312
+      ],
+      [
+        76194.49084151608,
+        305491.50915848394
+      ],
+      [
+        40115.465377496635,
+        160837.53462250336
+      ],
+      [
+        18694.985059205686,
+        74955.01494079431
+      ],
+      [
+        6399.613785670217,
+        25658.38621432978
+      ],
+      [
+        1822.985622644595,
+        7309.0143773554055
+      ]
+    ],
+    "test": "grade",
+    "method": "Chi-square independence",
+    "units": "Cramers V",
+    "threshold": 0.1,
+    "excluded": 0,
+    "p_display": "< 2.23e-308 (floating-point underflow)",
+    "holm_p_display": "< 2.23e-308 (floating-point underflow)",
+    "holm_reject": true,
+    "decision": "Reject H0",
+    "practical": "CI beyond positive threshold",
+    "p_underflow": true
+  },
+  {
+    "n_a": 324567,
+    "n_b": 1020743,
+    "events_a": 105307,
+    "events_b": 163252,
+    "proportion_a": 0.3244538107694251,
+    "proportion_b": 0.15993447910002812,
+    "estimate": 0.16451933166939697,
+    "se": 0.0008982960208057352,
+    "statistic": 204.2495038188143,
+    "df": null,
+    "p": null,
+    "ci_low": 0.1627587038211621,
+    "ci_high": 0.16627995951763186,
+    "min_expected": 64792.04715121422,
+    "chi2_crosscheck": 41717.85981023185,
+    "test": "term",
+    "method": "Two-proportion z",
+    "units": "proportion (60 minus 36 months)",
+    "threshold": 0.02,
+    "excluded": 0,
+    "p_display": "< 2.23e-308 (floating-point underflow)",
+    "holm_p_display": "< 2.23e-308 (floating-point underflow)",
+    "holm_reject": true,
+    "decision": "Reject H0",
+    "practical": "CI beyond positive threshold",
+    "p_underflow": true
+  }
+]

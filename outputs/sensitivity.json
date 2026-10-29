@@ -1,0 +1,44 @@
+{
+  "int_rate": {
+    "rule": "Pooled terminal-sample 99th percentile cap; sensitivity only",
+    "cap": 26.3,
+    "result": {
+      "n_a": 268559,
+      "n_b": 1076751,
+      "mean_a": 15.643480501491293,
+      "mean_b": 12.606473465081528,
+      "sd_a": 4.737237719542258,
+      "sd_b": 4.469299115180526,
+      "estimate": 3.037007036409765,
+      "se": 0.01010510709207706,
+      "statistic": 300.5417962161865,
+      "df": 396163.6278234621,
+      "p": null,
+      "ci_low": 3.017201329938703,
+      "ci_high": 3.056812742880827,
+      "p_display": "< 2.23e-308 (floating-point underflow)",
+      "p_underflow": true
+    }
+  },
+  "dti": {
+    "rule": "Pooled terminal-sample 99th percentile cap; sensitivity only",
+    "cap": 38.47,
+    "result": {
+      "n_a": 268488,
+      "n_b": 1076448,
+      "mean_a": 19.961544203092874,
+      "mean_b": 17.670792764722496,
+      "sd_a": 8.646209421345391,
+      "sd_b": 8.331812009009743,
+      "estimate": 2.2907514383703784,
+      "se": 0.018518256546133108,
+      "statistic": 123.70232762806832,
+      "df": 401881.64311678865,
+      "p": null,
+      "ci_low": 2.254456213171556,
+      "ci_high": 2.3270466635692006,
+      "p_display": "< 2.23e-308 (floating-point underflow)",
+      "p_underflow": true
+    }
+  }
+}

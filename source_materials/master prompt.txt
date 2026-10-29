@@ -1,0 +1,1221 @@
+# MASTER PROMPT — CSE558 DATA SCIENCE MIDTERM PROJECT
+
+## 1. ROLE AND MISSION
+
+Act as a senior data scientist, statistical inference specialist, Python engineer, reproducible-research reviewer, and academic technical writer.
+
+Your task is to CREATE A COMPLETE, WORKING, WELL-DOCUMENTED DATA SCIENCE MIDTERM PROJECT FOLDER using my LendingClub Accepted Loans dataset and the course materials and professor-provided documents that I upload alongside this prompt.
+
+This is an academic project for CSE558 Data Science at IIIT-Delhi, Monsoon 2026.
+
+Do not merely give me a plan, a notebook outline, code snippets, or a written explanation. Create the actual project directory and all necessary files in your available workspace. Run the code, calculate the results from the real dataset, generate the figures and tables, compile the final report if the environment permits, and verify the entire project.
+
+Do not spend time configuring GitHub, creating a repository, or publishing code. I will handle GitHub independently.
+
+The deliverable must be a complete local project that I can inspect, run, understand, explain during a presentation, and adapt for the final submission.
+
+## 2. PROJECT CONTEXT AND SOURCE MATERIALS
+
+I will upload the following materials. Inspect them before deciding the final methodology.
+
+### A. Professor's official instructions
+
+1. CSE558_Project_Report_Template.pdf
+2. CSE558_Project_Report_Guidelines.pdf or CSE558_Project_Report_Guidelines(1).pdf
+
+These documents are authoritative for the report structure, required analysis, presentation of statistical tests, and submission constraints.
+
+Follow the professor's instructions rather than replacing them with a generic data science workflow.
+
+The guidelines require:
+
+- Dataset provenance, dimensions, meaningful attributes, and an explicit post-encoding size calculation.
+- Data preparation decisions and their justification.
+- Before-and-after comparisons.
+- Basic exploratory questions and a novel, defensible project problem statement.
+- A few meaningful EDA plots with concise interpretations.
+- Three to five hypothesis tests addressing the research questions.
+- For each test, hypotheses, significance level, test direction, test choice, smallest practically meaningful difference, alternative tests considered, test statistic, degrees of freedom where applicable, p-value, decision, estimate, 95% confidence interval, and practical interpretation.
+- A code reference and README.
+- A PDF report of no more than eight pages, based on the supplied LaTeX template.
+
+The guidelines emphasize the quality of the inference and reasoning, not whether a test rejects its null hypothesis.
+
+Where the example template conflicts with the explicit guideline on the number of tests, follow the explicit guideline: conduct 3–5 valid, nonredundant tests.
+
+The provided template is an example to adapt, not a source of facts about my dataset. Remove its fictional team details, restaurant data, example statistics, and irrelevant restaurant-specific discussion.
+
+### B. LendingClub data profile
+
+LendingClub_Dataset_Profile_Report.pdf or LendingClub_Dataset_Profile_Report(1).pdf
+
+This is the existing profile of my dataset. It is a preliminary audit and reference, not a substitute for analyzing the actual CSV.
+
+It reports:
+
+- Source filename: accepted_2007_to_2018Q4.csv
+- 314,168 rows and 162 columns
+- 115 inferred numeric columns and 36 categorical/text columns
+- No duplicate full rows detected in the profiled data
+- Missingness in all rows, with 142 columns containing at least one missing value
+- Loan-status counts including Fully Paid, Charged Off, Current, and smaller late/default-related categories
+- Potentially important skewed variables, extreme values, high-cardinality columns, and post-origination variables.
+
+Verify every relevant profile statistic against the actual dataset. If the CSV differs from the profiled version, record the discrepancy and use the actual CSV for all final results.
+
+Do not assume that every extreme value is erroneous or that every missing value should be imputed.
+
+### C. Course materials
+
+Inspect all supplied CSE558 lecture PDFs, including Lectures 1–12 where available:
+
+- Lecture 1
+- Lecture 2
+- Lecture 3
+- Lecture 4
+- Lecture 5
+- Lecture 6
+- Lecture 7
+- Lecture 8
+- Lecture 9
+- Lecture 10
+- Lecture 11
+- Lecture 12
+
+Also inspect the supplied quiz solutions, quiz rubric, and Data Science Practice Problems PDF.
+
+These are the primary source of the course's terminology, formulas, conventions, and expected depth.
+
+The project must remain approximately 80% grounded in material taught by the midterm. More advanced methods are permitted only when they solve a real analytical problem and can be explained at an appropriate undergraduate level.
+
+Do not introduce complex machine learning merely to make the project look sophisticated.
+
+If a file is missing, unreadable, or unavailable, report that limitation rather than claiming to have inspected it.
+
+### D. Actual dataset
+
+Use the real LendingClub accepted-loan CSV, not fabricated observations, synthetic replacements, or values inferred from the profiling report.
+
+If the actual CSV is unavailable, stop before reporting empirical findings. Create any genuinely useful scaffolding that does not depend on unavailable observations, clearly identify the missing input, and tell me exactly what must be supplied.
+
+## 3. PROJECT OBJECTIVE
+
+Develop a statistically rigorous investigation of borrower and loan characteristics associated with observed repayment outcomes in LendingClub accepted loans.
+
+Proposed working title:
+
+"Statistical Inference on Loan Repayment Outcomes in LendingClub Accepted Loans"
+
+Refine the title after examining the dataset and identifying the strongest defensible research questions.
+
+The project should answer questions that are specific, measurable, statistically testable, relevant to lending, and capable of producing either a positive or negative result.
+
+The central objective is not simply to predict whether a borrower defaults. It is to investigate relationships in the observed data, quantify uncertainty, evaluate practical importance, and explain what the evidence can and cannot establish.
+
+Explicitly distinguish:
+
+1. Descriptive findings: what the dataset contains.
+2. Inferential findings: what the statistical tests support about the relevant population, subject to sampling and data limitations.
+3. Predictive findings: any optional model-based prediction.
+4. Causal claims: claims that require stronger assumptions or a suitable causal design and must not be inferred merely from associations.
+
+Do not describe an association as proof that a loan characteristic causes default.
+
+## 4. FIRST PHASE: INSPECT AND VALIDATE THE INPUTS
+
+Before choosing tests or writing conclusions:
+
+1. Read the official project guidelines and template in full.
+2. Inspect the available lecture materials, quiz resources, and practice problems.
+3. Inspect the entire data profile.
+4. Locate and load the actual dataset.
+5. Establish its exact path, file format, encoding, dimensions, column names, inferred data types, and memory requirements.
+6. Check whether the supplied file is the expected LendingClub dataset version.
+7. Compare actual dimensions, loan-status counts, missingness, duplicates, and important summary statistics with the profiling report.
+8. Check whether loan IDs are unique and whether any duplicate loans exist.
+9. Determine which observations have terminal repayment outcomes and which are still ongoing or otherwise unresolved.
+10. Produce a short internal audit and save the reproducible version of this audit in the project folder.
+
+Inspect actual column definitions and source documentation when available. Do not infer the exact meaning of an ambiguous field from its name alone.
+
+Important distinction: the profile's 314,168 × 162 dimensions describe the profiled source file, not necessarily the final inferential sample or encoded feature matrix.
+
+Record the exact dataset version, source URL if verified, access date, and any applicable licence or usage conditions. Do not invent provenance.
+
+## 5. FORMULATE A DEFENSIBLE RESEARCH DESIGN
+
+Use the actual dataset to select a primary question and several supporting questions.
+
+A sensible starting point is to investigate differences between loans recorded as Fully Paid and Charged Off.
+
+However, verify the status definitions and whether those are the only outcome groups appropriate for the intended question.
+
+For comparisons of completed outcomes, explicitly consider excluding Current, late, in-grace-period, and other nonterminal or ambiguous statuses. Explain the resulting target population and selection limitations.
+
+Do not treat every non-Fully-Paid loan as a default automatically. Do not treat a current loan as a successful repayment or a completed default.
+
+Potential research questions to evaluate include:
+
+A. Do interest rates differ between Fully Paid and Charged Off loans?
+
+B. Do debt-to-income ratios differ between Fully Paid and Charged Off loans?
+
+C. Does the observed charge-off proportion vary across loan grades?
+
+D. Is loan term associated with the probability of charge-off among loans with terminal outcomes?
+
+E. Do loan amounts differ between Fully Paid and Charged Off loans?
+
+F. Are selected borrower characteristics associated with one another in ways relevant to interpreting the outcome comparisons?
+
+These are candidate questions, not predetermined findings. Choose the best-supported 3–5 tests after checking data availability, group sizes, assumptions, overlap between research questions, and interpretability.
+
+Avoid selecting four nearly identical tests simply because they produce small p-values.
+
+A recommended primary investigation is whether observable borrower and loan characteristics differ meaningfully between Fully Paid and Charged Off loans. A supporting investigation can examine whether observed charge-off proportions vary across meaningful loan categories.
+
+Keep the primary question focused.
+
+For every selected research question, explain:
+
+- Why the question matters in the lending context.
+- The population and observations to which it applies.
+- The outcome variable and explanatory variable(s).
+- The unit of analysis.
+- The precise estimand, such as a difference in population means or a difference in proportions.
+- The expected direction, if the research hypothesis genuinely specifies one.
+- The smallest difference that would matter in the real world.
+- What result would support or fail to support the hypothesis.
+
+Define the smallest practically meaningful difference before looking at the final test results. Justify it using domain context, scale, or an explicit decision-relevance argument. If no defensible threshold can be established, state that limitation rather than inventing an authoritative industry threshold.
+
+## 6. COURSE ALIGNMENT: APPROXIMATELY 80% SYLLABUS-BASED
+
+Use the uploaded lecture notes as the primary authority.
+
+The main analytical workflow should use techniques already taught in the course, especially:
+
+- Data types, categorical versus numerical attributes, and appropriate encoding.
+- Mean, median, mode, variance, standard deviation, quantiles, IQR, skewness, and outliers.
+- Histograms, boxplots, bar plots, and scatter plots.
+- Missing-value handling, data-quality checks, and data preparation.
+- Probability and distributions where relevant.
+- Sampling distributions and the Central Limit Theorem, with assumptions and limitations.
+- Confidence intervals and standard errors.
+- Null and alternative hypotheses.
+- Significance levels, one-sided and two-sided tests, p-values, rejection decisions, Type I and Type II errors, and effect size.
+- One-sample and two-sample z-tests where their assumptions are met.
+- One-sample, independent-sample, and paired t-tests where appropriate.
+- Welch's two-sample t-test for independent groups with unknown and potentially unequal variances.
+- Two-proportion z-tests when the design and sample-size conditions justify them.
+- Chi-square tests of independence for suitable categorical contingency tables.
+- Correlation and its limitations when appropriate.
+- Appropriate comparisons between candidate statistical tests.
+
+Use only methods that match the question and data structure. A method being taught in the syllabus does not automatically make it suitable.
+
+Advanced material should be limited and purposeful. Potential extensions include log transformations, robust sensitivity analysis, bootstrap confidence intervals, or a simple baseline classifier. These are optional and must not displace the required inferential work.
+
+If a technique is not taught in the supplied lectures, label it as an extension and provide a beginner-friendly explanation.
+
+## 7. CRITICAL REQUIREMENT: TEMPORAL VALIDITY AND DATA LEAKAGE
+
+This is a lending dataset, so the time at which each variable becomes available matters.
+
+Create a feature audit with columns such as:
+
+- Feature name
+- Meaning
+- Type
+- Available at application or loan origination?
+- Recorded during repayment?
+- Potential leakage risk
+- Decision and justification
+
+Variables such as last payment dates, payment amounts, recoveries, collection recoveries, settlement amounts, settlement dates, outstanding balances, and other repayment-process fields may describe events after origination.
+
+Do not use post-outcome variables as if they were information available before the loan was issued.
+
+For an analysis of observed outcomes, post-origination fields may be examined descriptively when relevant, but they must not be presented as valid pre-origination risk predictors.
+
+For an optional predictive extension, explicitly define the prediction time and exclude any field that would not be available then.
+
+Do not use loan_status itself, a direct outcome proxy, or a field derived from future repayment events as a predictor of that same outcome.
+
+If the selected tests compare completed loan outcomes, explain why the target population is restricted to terminal outcomes and how that affects generalisation.
+
+Do not silently remove difficult cases to improve the apparent results.
+
+## 8. DATA CLEANING AND PREPARATION
+
+Create a transparent, reproducible cleaning pipeline.
+
+### 8.1 Missing values
+
+- Compute missing counts and percentages for every column.
+- Identify entirely missing columns, near-empty columns, and columns with substantial missingness.
+- Investigate why fields may be missing, including conditional missingness for joint applications, hardship information, or settlement information.
+- Distinguish structurally missing values from ordinary missing observations whenever the data supports that distinction.
+- Do not replace every missing value with zero.
+- Do not blindly mean-impute all numeric columns.
+- Do not impute the outcome variable.
+- Do not impute values solely to preserve a high row count.
+- For each retained variable, justify deletion, imputation, missingness indicators, or preservation of missing values.
+- Use imputation only where appropriate and document the strategy.
+- If an optional predictive model is built, fit imputation and encoding on the training partition only.
+
+For the main hypothesis tests, prefer transparent analysis-specific complete-case rules when defensible, and disclose the resulting sample size and limitations.
+
+### 8.2 Duplicates and identifiers
+
+- Check exact duplicate rows.
+- Check duplicate loan IDs separately.
+- Distinguish identifiers from substantive attributes.
+- Do not treat identifiers as numeric predictors.
+- Retain IDs only where necessary for traceability and validation.
+- Do not automatically delete observations merely because substantive features happen to match.
+
+### 8.3 Data types and inconsistent values
+
+- Parse percentage strings and monetary fields only after verifying their formats and units.
+- Parse date fields where useful and document the resulting date coverage.
+- Check categorical spelling, whitespace, inconsistent labels, invalid numeric ranges, and unexpected sentinel values.
+- Do not assume that an unusual numeric value is an error without evidence.
+
+### 8.4 Outliers
+
+Use the IQR rule taught in class where suitable:
+
+Lower fence = Q1 − 1.5 × IQR
+
+Upper fence = Q3 + 1.5 × IQR
+
+Treat the rule as a flag for investigation, not an automatic deletion rule.
+
+Report the number and percentage of flagged observations for relevant numeric variables.
+
+For the main inference, prefer retaining valid observations and selecting methods appropriate to the observed distributions. If a genuine data error is identified, document the correction or exclusion.
+
+Where extreme values materially influence results, conduct a clearly labelled sensitivity analysis, such as comparing a primary result with a robust or appropriately justified transformed analysis.
+
+Do not remove observations just because doing so makes a result statistically significant.
+
+### 8.5 Categorical encoding
+
+Use one-hot encoding for suitable nominal variables where encoding is needed.
+
+For ordinal variables such as loan grades, preserve the documented order when it is analytically relevant, but do not assume equally spaced numerical differences without justification.
+
+For high-cardinality categories, avoid creating enormous, uninterpretable feature matrices unnecessarily. Explain any justified rare-category grouping and preserve meaningful distinctions.
+
+Identifiers, ZIP codes, and state abbreviations must not be interpreted as continuous numerical quantities.
+
+### 8.6 Scaling and transformation
+
+Use transformations only when they serve a clearly stated purpose.
+
+For skewed positive monetary variables, income, loan amounts, or other positive quantities, investigate log1p(x) or log(x) when the domain permits it.
+
+Before applying a logarithm, verify that the variable's values make the transformation valid and that zero and negative values are handled explicitly.
+
+For every transformation, record:
+
+- Original variable and distribution.
+- Motivation.
+- Exact formula.
+- Handling of zeros and negative values.
+- Distribution before and after transformation.
+- Effect on interpretability.
+- Whether the inferential analysis is conducted on the original or transformed scale.
+- How estimates are interpreted on that scale.
+
+Do not apply transformations to every variable simply because the dataset is skewed.
+
+Do not claim that a log transform makes a variable Gaussian automatically. Check the resulting distribution.
+
+If standardisation is useful for an optional model, explain that it changes scale rather than removing outliers or making a distribution normal.
+
+### 8.7 Leakage and preprocessing boundaries
+
+Maintain separate datasets or pipelines for:
+
+1. Raw source data.
+2. Audited data.
+3. Cleaned data.
+4. Analysis-ready samples for each research question.
+5. Optional model-ready features.
+
+Never overwrite the raw dataset.
+
+Keep preprocessing steps deterministic where possible and save configuration choices explicitly.
+
+## 9. BEFORE-AND-AFTER AUDIT
+
+Produce a detailed before-and-after table using actual calculations.
+
+Include, where relevant:
+
+- Row count.
+- Original column count.
+- Number of usable analytical attributes.
+- Encoded feature count.
+- Missing values and missingness percentages.
+- Duplicate rows and duplicate identifiers.
+- Outcome-group counts.
+- Outlier flags for important variables.
+- Data types corrected.
+- Invalid or inconsistent records addressed.
+- Rows retained for each inferential test.
+- Rows excluded from each test and why.
+- Memory usage where informative.
+
+Explain why each change was made and what information was lost or retained.
+
+Reconcile row counts. For example, if 314,168 rows become fewer analysis-ready rows, the exact difference must be explained by documented operations.
+
+Do not claim that all missing values have been removed unless the actual processed data proves it.
+
+### Mandatory size calculation
+
+The guidelines require demonstrating whether the number of instances multiplied by the number of attributes is at least 3,000,000 after encoding.
+
+Show:
+
+N × P = actual encoded instance-attribute count.
+
+Calculate this using the actual encoded design matrix or feature representation, with a clear definition of which rows and attributes it includes.
+
+Also report the number of rows and columns before encoding.
+
+Distinguish the size of the full encoded analytical representation from a smaller test-specific dataset or a model feature matrix that excludes identifiers and leakage variables.
+
+Do not one-hot encode every column blindly merely to inflate the count. Encoding must be analytically justified.
+
+## 10. EXPLORATORY DATA ANALYSIS
+
+Build a focused EDA section with a useful selection of figures, not a collection of decorative plots.
+
+Use appropriate visualisations, including:
+
+- Loan-status distribution.
+- Distribution of important numerical variables.
+- Boxplots comparing relevant variables across Fully Paid and Charged Off groups.
+- Loan-grade and loan-term distributions.
+- Relationships between selected borrower characteristics.
+- Missingness summaries.
+- A comparison showing how skewness or an appropriate transformation changes a distribution.
+- Relevant categorical outcome proportions.
+
+Choose figures based on the final research questions.
+
+For each figure:
+
+1. Give it a meaningful title.
+2. Label axes and units.
+3. Include sample size where relevant.
+4. Use readable scales.
+5. Handle highly skewed values in a way that does not conceal the original data.
+6. Add a concise takeaway explaining what the reader should notice.
+7. Avoid causal language.
+8. Do not hide group-size imbalance or missingness.
+
+Save publication-quality figures in a dedicated folder.
+
+Save the plotting code so every figure can be regenerated.
+
+Use descriptive statistics and EDA to motivate the tests, but do not use the same data repeatedly to manufacture a favourable hypothesis.
+
+## 11. DESIGN THREE TO FIVE HYPOTHESIS TESTS
+
+Conduct 3–5 valid, nonredundant hypothesis tests on the actual data.
+
+Four tests are a reasonable initial target if the data supports them.
+
+The following are candidate designs. Select and finalise the tests only after verifying the actual columns, sample sizes, and assumptions.
+
+### Candidate Test A: Interest-rate difference
+
+Question: Do interest rates differ between Fully Paid and Charged Off loans?
+
+Potential test: Welch's independent two-sample t-test.
+
+Possible estimand: mean interest rate among Charged Off loans minus mean interest rate among Fully Paid loans.
+
+Use the original percentage-point scale for the main estimate when appropriate. Investigate skewness, group sizes, and the distribution of interest rates.
+
+### Candidate Test B: Debt-to-income difference
+
+Question: Does the debt-to-income ratio differ between Fully Paid and Charged Off loans?
+
+Potential test: Welch's independent two-sample t-test, provided the data definition and sample sizes justify its use.
+
+Inspect extreme values, missingness, and whether the groups differ substantially in spread.
+
+Consider a log or robust sensitivity analysis only if the variable's domain and the scientific question justify it. Do not use a log transform on negative values without a defensible handling rule.
+
+### Candidate Test C: Loan-grade association
+
+Question: Is recorded loan grade associated with terminal repayment outcome?
+
+Potential test: chi-square test of independence using a properly defined contingency table.
+
+Specify the included outcome categories and grade categories.
+
+Calculate expected cell counts and assess whether the chi-square approximation is suitable.
+
+If expected counts are inadequate, use a defensible alternative or combine categories only when substantively justified. Explain the choice.
+
+Report degrees of freedom, test statistic, p-value, and an interpretable measure of association where appropriate.
+
+### Candidate Test D: Loan-term and charge-off proportion
+
+Question: Does the observed charge-off proportion differ between eligible loan-term groups?
+
+Potential test: a two-proportion z-test if the groups and denominator definitions are valid and the approximation conditions are satisfied.
+
+Restrict the denominator to the explicitly defined eligible population, such as loans with terminal outcomes, if that matches the research question.
+
+Define charge-off as the success or event indicator consistently.
+
+Report both observed proportions, their absolute difference in percentage points, the confidence interval for that difference, and the test result.
+
+A chi-square test on the equivalent 2 × 2 table may be reported as a cross-check. Explain the relationship between the methods and avoid counting the same test twice as two independent research findings.
+
+### Alternative candidates
+
+Loan amount, annual income, FICO-related measurements, or other pre-origination attributes may replace a candidate when the data audit reveals a more informative question.
+
+Do not force any test into the project if its assumptions or substantive interpretation are weak.
+
+### Required format for every final test
+
+For each test, create the following structured analysis.
+
+A. Research question and real-world motivation.
+
+B. Population, sample selection, inclusion/exclusion rules, and sample sizes.
+
+C. Parameter or estimand, including its units.
+
+D. Hypotheses specified before the test:
+
+- H0 must carry the equality, including boundary equality for a one-sided test.
+- H1 must express the intended alternative.
+- State whether the test is one-sided or two-sided.
+- Explain why that direction was chosen before seeing the result.
+
+E. Significance level:
+
+Use alpha = 0.05 unless another level is justified in advance.
+
+F. Smallest practically meaningful difference:
+
+State a numerical threshold in interpretable units and justify it.
+
+G. Test selection:
+
+Explain why the selected test matches the data type, study design, assumptions, and question.
+
+H. Assumption checks:
+
+Report relevant group sizes, independence concerns, variance differences, distributional concerns, and expected cell counts as applicable.
+
+I. Formula and interpretation:
+
+Show the relevant formula and define each symbol. Include enough intermediate calculations for a student to reproduce the reasoning.
+
+J. Results:
+
+- Sample sizes.
+- Relevant descriptive statistics.
+- Test statistic.
+- Degrees of freedom, when applicable.
+- P-value.
+- Estimate of the difference or association.
+- 95% confidence interval.
+- Decision at the chosen significance level.
+
+K. Practical significance:
+
+Compare the estimated difference and confidence interval with the predefined smallest practically meaningful difference.
+
+Explicitly distinguish statistical significance from practical importance.
+
+L. Alternative-test comparison:
+
+Discuss the tests that could plausibly have been used and why they were rejected, including their assumptions and limitations.
+
+M. Plain-English conclusion:
+
+Answer the original question directly, with no claim stronger than the evidence allows.
+
+N. Limitations:
+
+Explain any threats to validity, such as selection effects, confounding, dependence, non-normality, unequal variances, missing data, or multiple comparisons.
+
+## 12. STATISTICAL CORRECTNESS RULES
+
+These rules are mandatory.
+
+1. Never invent numerical results.
+2. Never report a p-value from an unexecuted calculation.
+3. Never infer a test result from a graph alone.
+4. Never say that failing to reject H0 proves H0 true.
+5. Never equate statistical significance with practical importance.
+6. Never claim that a small p-value establishes causation.
+7. Never use a paired t-test for unrelated groups.
+8. Never use a pooled t-test without addressing its equal-variance assumption.
+9. Never use a z-test requiring a known population standard deviation when only the sample standard deviation is available.
+10. Never use a two-proportion test without clearly defining the two populations and their denominators.
+11. Never use a chi-square test of independence on arbitrary numerical measurements instead of suitable categorical counts.
+12. Never use the same observation as independent evidence multiple times without acknowledging dependence.
+13. Never ignore the problem of multiple testing when conducting several related tests.
+14. Never select a one-sided alternative after inspecting the direction of the observed difference.
+15. Never report zero as a p-value. Use a suitable scientific-notation value or an appropriate bound.
+16. Never confuse the standard error with the standard deviation.
+17. Never treat a confidence interval that includes zero as proof that the true effect is exactly zero.
+18. Never interpret a large sample size as a guarantee that every approximation or assumption is valid.
+19. Never describe current loans as completed outcomes.
+20. Never allow a post-origination feature to leak into a model intended to predict outcomes at origination.
+
+### Confidence intervals
+
+Calculate 95% confidence intervals using the correct formula or a well-tested statistical implementation.
+
+For a difference in means, report the difference in the chosen direction and the corresponding interval.
+
+For a difference in proportions, report the absolute difference in percentage points and an appropriate interval for two independent proportions.
+
+For a categorical association, report an interpretable effect measure and uncertainty interval when feasible.
+
+Check the interval against the test result for consistency.
+
+If an interval and a hypothesis-test conclusion disagree unexpectedly, investigate the implementation rather than reporting both.
+
+### Multiple testing
+
+Because the project includes several related tests, explain the implications of repeated testing.
+
+Use the unadjusted tests as the primary analysis if appropriate for the course and research design, but clearly label them.
+
+Where several related hypotheses form one family, consider Holm adjustment as an optional extension. Report both adjusted and unadjusted results if you implement it.
+
+Do not silently change the significance threshold after observing the results.
+
+### Alternative tests
+
+Make the comparison specific to the question.
+
+For example, when considering an independent two-sample mean comparison, explain why a two-sample z-test, pooled t-test, Welch t-test, paired t-test, or a correlation test may or may not fit the design.
+
+Do not mechanically list every test taught in the course. Discuss genuinely plausible alternatives.
+
+## 13. REPRODUCIBLE IMPLEMENTATION
+
+Use Python and a Jupyter notebook as the primary analysis environment.
+
+Recommended tools:
+
+- pandas for data loading and tabular processing.
+- NumPy for numerical calculations.
+- Matplotlib and Seaborn for visualisation.
+- SciPy for statistical distributions and tests.
+- statsmodels for suitable statistical tests and confidence intervals.
+- scikit-learn only if an optional predictive extension genuinely helps.
+
+Keep the dependencies manageable.
+
+Separate reusable functions from the notebook where practical.
+
+Examples of useful functions include:
+
+- Dataset loading and schema validation.
+- Missingness and duplicate audits.
+- Numeric summary tables.
+- IQR outlier flagging.
+- Encoding and transformation utilities.
+- Two-sample mean comparisons.
+- Two-proportion comparisons.
+- Chi-square tests.
+- Confidence interval calculations.
+- Statistical result formatting.
+- Figure generation.
+- Data-size calculation.
+- Leakage audits.
+
+Use fixed random seeds for any stochastic procedure.
+
+Use relative file paths based on the project root rather than hard-coded paths from the current computer.
+
+Do not require credentials, API keys, or external services for the core project.
+
+If an external dataset download is necessary, provide an optional, documented download step and verify the actual source. The analysis must also support loading a local CSV.
+
+## 14. TEST THE CODE AND REPRODUCIBILITY
+
+Run the complete workflow against the real data.
+
+Check that:
+
+- The dataset loads successfully.
+- Required columns exist.
+- Unexpected categories are detected.
+- Missingness and row counts reconcile.
+- Transformations are numerically valid.
+- Encoding produces the expected feature matrix.
+- The 3,000,000 size requirement is checked correctly.
+- Each selected test runs with the intended samples.
+- Degrees of freedom are correct.
+- Confidence intervals are consistent with the estimates and tests.
+- Figures are generated and saved.
+- All result tables contain actual values.
+- The report refers to the generated outputs.
+- The notebook executes from top to bottom without hidden state.
+- The environment can be reconstructed from requirements.txt.
+- The README commands work from the project root.
+
+Write lightweight automated tests for important helper functions and statistical calculations.
+
+Use small synthetic examples only to test the functions, not to substitute for empirical results in the final report.
+
+If a computation fails, fix the issue or document the blocker. Do not hide failures by printing hard-coded expected output.
+
+Record a clear distinction between checks actually executed and checks that could not be completed.
+
+## 15. REQUIRED PROJECT FOLDER
+
+Create a clean folder with a structure similar to this:
+
+lendingclub-midterm-project/
+│
+├── README.md
+├── requirements.txt
+├── .gitignore
+├── LICENSE_OR_DATA_NOTICE.md
+│
+├── data/
+│   ├── raw/
+│   │   └── README.md
+│   ├── interim/
+│   └── processed/
+│
+├── notebooks/
+│   ├── 01_data_audit.ipynb
+│   ├── 02_data_preparation_and_eda.ipynb
+│   └── 03_statistical_inference.ipynb
+│
+├── src/
+│   ├── __init__.py
+│   ├── config.py
+│   ├── data_loading.py
+│   ├── data_quality.py
+│   ├── preprocessing.py
+│   ├── feature_audit.py
+│   ├── eda.py
+│   ├── statistical_tests.py
+│   └── reporting.py
+│
+├── tests/
+│   ├── test_data_quality.py
+│   ├── test_preprocessing.py
+│   └── test_statistical_tests.py
+│
+├── reports/
+│   ├── final_report.tex
+│   ├── final_report.pdf
+│   ├── detailed_technical_report.md
+│   ├── methodology_and_results.md
+│   ├── data_dictionary.md
+│   ├── syllabus_mapping.md
+│   ├── viva_questions_and_answers.md
+│   ├── limitations_and_future_work.md
+│   └── references.md
+│
+├── figures/
+│   ├── eda/
+│   └── inference/
+│
+├── outputs/
+│   ├── tables/
+│   ├── logs/
+│   ├── dataset_audit.json
+│   └── run_summary.json
+│
+└── scripts/
+    ├── run_all.py
+    ├── generate_figures.py
+    ├── generate_tables.py
+    └── compile_report.py
+
+Modify this structure if necessary, but preserve the functional separation between raw data, processed data, source code, tests, outputs, and reports.
+
+Do not create empty files merely to fill the folder tree.
+
+Every included file must have a defined purpose.
+
+Do not commit or duplicate the large raw dataset unnecessarily. If it cannot be redistributed, provide precise instructions for placing it locally.
+
+Never overwrite the raw CSV.
+
+If the dataset is too large to bundle with the final folder, the project must still work once the user places the file in the documented location.
+
+## 16. README REQUIREMENTS
+
+Create a detailed but practical README.md.
+
+It must explain:
+
+1. Project title and objective.
+2. Research questions.
+3. Why LendingClub is a relevant dataset.
+4. Dataset source and version.
+5. What data must be downloaded or supplied.
+6. Where to place the raw CSV.
+7. Hardware and software requirements.
+8. Python version.
+9. Installation instructions.
+10. Virtual environment setup for Windows PowerShell and, if useful, macOS/Linux.
+11. Dependency installation.
+12. How to run the audit.
+13. How to execute the notebooks.
+14. How to run the complete analysis from the terminal.
+15. How to regenerate figures and tables.
+16. How to compile the LaTeX report.
+17. Expected outputs and their locations.
+18. How the encoded-size requirement is calculated.
+19. Summary of the statistical methods.
+20. How the methods relate to the CSE558 syllabus.
+21. Data privacy, licensing, and redistribution considerations.
+22. Known limitations.
+23. Common installation and execution errors with fixes.
+24. A checklist for verifying that the run completed successfully.
+
+Provide exact commands that match the implemented files. Do not document commands that do not exist.
+
+Include Windows-friendly instructions, since the project may be run on Windows.
+
+Do not require GitHub or a cloud service to run the project.
+
+## 17. DETAILED TECHNICAL REPORT
+
+Create reports/detailed_technical_report.md as a substantial explanation of the project.
+
+This document is not subject to the eight-page limit that applies to the professor's submission PDF.
+
+It should explain the entire project from beginning to end:
+
+### Part A: Problem framing
+
+- LendingClub background.
+- Research motivation.
+- Exact primary and secondary research questions.
+- Scope of the study.
+- Unit of analysis.
+- Why statistical inference is the central objective.
+
+### Part B: Dataset and schema
+
+- Dataset provenance.
+- Actual dimensions and memory usage.
+- Important variables and real-world interpretations.
+- Data types.
+- Outcome definitions.
+- Missingness patterns.
+- High-cardinality fields.
+- Potentially post-outcome variables.
+- Differences between the original profile and actual re-audit, if any.
+
+### Part C: Data preparation
+
+Explain every meaningful cleaning, encoding, filtering, and transformation decision.
+
+For each decision, discuss:
+
+- What problem was detected.
+- How it was detected.
+- What action was taken.
+- Why the action was appropriate.
+- Why plausible alternatives were rejected.
+- How many observations or values were affected.
+- How the decision could influence the conclusions.
+
+### Part D: Exploratory data analysis
+
+Explain every important figure, descriptive statistic, and observed pattern.
+
+For each figure, answer:
+
+- What is plotted?
+- Why is this plot appropriate?
+- What does it reveal?
+- What does it not reveal?
+- How does it motivate or constrain a research question?
+
+### Part E: Statistical theory
+
+Teach every selected test from first principles at a BTech undergraduate level.
+
+For each test, explain:
+
+- What type of question it answers.
+- When it should be used.
+- When it should not be used.
+- Its assumptions.
+- Its hypotheses.
+- Its formula.
+- What each symbol means.
+- How the test statistic is calculated.
+- How the reference distribution is used.
+- How the p-value is interpreted.
+- How the confidence interval is calculated.
+- How the effect size is interpreted.
+- What a Type I or Type II error would mean in this project.
+- Why alternative tests were considered or rejected.
+
+Use simple examples to explain the ideas, but clearly separate illustrative examples from actual project results.
+
+### Part F: Actual results
+
+Include the genuine computed values, sample sizes, estimates, test statistics, degrees of freedom, p-values, confidence intervals, decisions, and practical interpretations.
+
+Show enough calculations to make the results independently auditable.
+
+### Part G: Syllabus connection
+
+Map the implemented analysis to the exact supplied lecture numbers and topics.
+
+Use the lecture PDFs, quiz material, and practice problems to verify the mapping.
+
+Separate:
+
+- Directly taught methods.
+- Methods adapted from taught principles.
+- Optional methods beyond the taught syllabus.
+
+### Part H: Critical interpretation
+
+Discuss statistical significance, practical significance, uncertainty, confounding, selection effects, missingness, dependence, multiple testing, outcome maturity, and generalisability.
+
+### Part I: Final conclusions
+
+Answer the research questions, state the evidence clearly, and explain what the analysis cannot establish.
+
+## 18. METHODOLOGY AND RESULTS DOCUMENT
+
+Create reports/methodology_and_results.md as a compact, structured companion to the technical report.
+
+Include:
+
+- Final research questions.
+- Test-selection rationale.
+- Exact hypotheses.
+- Predeclared significance levels and practical thresholds.
+- Assumption checks.
+- Alternative-test comparisons.
+- Results tables.
+- Confidence intervals.
+- Practical interpretations.
+- Sensitivity checks.
+- Conclusions.
+
+This document should make it easy for a reviewer to audit the analysis without reading every notebook cell.
+
+## 19. DATA DICTIONARY
+
+Create reports/data_dictionary.md.
+
+For every relevant source and derived variable, include:
+
+- Name.
+- Meaning.
+- Original type.
+- Analytical type.
+- Units.
+- Valid or observed values.
+- Missingness.
+- Whether it is used in EDA.
+- Whether it is used in a hypothesis test.
+- Whether it is eligible for pre-origination prediction.
+- Any transformation or encoding.
+- Interpretation and caveats.
+
+Include derived variables such as terminal outcome indicators, loan-term groups, transformed variables, and categorical encodings.
+
+Document the exact definition of every derived variable.
+
+## 20. SYLLABUS MAPPING
+
+Create reports/syllabus_mapping.md.
+
+Map each important analytical component to the supplied lectures and quiz materials.
+
+Include columns for:
+
+- Course concept.
+- Lecture or reference document.
+- Where it is used in the project.
+- Why it is relevant.
+- Whether it is directly taught or an extension.
+- How I should explain it during the presentation.
+
+Prioritise topics that were actually covered before the midterm.
+
+Do not claim that a topic was taught in a specific lecture without verifying the uploaded lecture.
+
+## 21. VIVA QUESTIONS AND ANSWERS
+
+Create reports/viva_questions_and_answers.md.
+
+Prepare a substantial question bank, grouped into categories:
+
+1. Project objective and novelty.
+2. LendingClub dataset and provenance.
+3. Data types and schema.
+4. Missing values and missingness mechanisms.
+5. Outliers and IQR.
+6. Categorical encoding.
+7. Log transformations and skewness.
+8. Feature leakage.
+9. Exploratory plots.
+10. Hypothesis formulation.
+11. One-sided versus two-sided tests.
+12. z-tests and t-tests.
+13. Welch versus pooled t-tests.
+14. Two-proportion tests.
+15. Chi-square tests and degrees of freedom.
+16. P-values and significance levels.
+17. Confidence intervals and standard errors.
+18. Statistical versus practical significance.
+19. Multiple testing.
+20. Assumptions and robustness.
+21. Alternative methods.
+22. Results and interpretation.
+23. Limitations and causality.
+24. Reproducibility and code architecture.
+25. Potential challenges from a statistics professor.
+
+Include questions such as:
+
+- Why did you choose this problem?
+- What makes it different from simply describing loan-status counts?
+- Why is the selected test appropriate?
+- What would change if the variances were unequal?
+- Why can a very small p-value coexist with a practically negligible difference?
+- What does a 95% confidence interval mean?
+- Why can we not use post-origination repayment variables to predict default at origination?
+- Why not delete all outliers?
+- Why not fill every missing value with the mean?
+- Why are Current loans treated differently from terminal outcomes?
+- How does the encoded-size requirement work?
+- What would you conclude if the test failed to reject H0?
+- What are the biggest weaknesses of your analysis?
+- What would you do differently if given more time?
+
+Answers must be technically accurate, clear, concise enough to speak aloud, and specific to the actual project.
+
+Include follow-up questions and the common mistakes students make when answering them.
+
+## 22. FINAL REPORT: SUPPLIED LATEX TEMPLATE
+
+Adapt the actual professor-provided LaTeX template.
+
+Preserve its required structure and submission conventions, including the dataset section, preparation section, before-and-after comparison, basic questions and problem statement, statistical inference sections, and limitations.
+
+Do not simply convert a Markdown report into a random PDF layout.
+
+Replace all illustrative restaurant-related content with the actual LendingClub analysis.
+
+The submission PDF must:
+
+- Be no more than eight pages.
+- Use the professor's template.
+- Include genuine computed results.
+- Include meaningful EDA plots and concise captions.
+- Include 3–5 hypothesis tests, subject to the space constraint.
+- Include the key assumptions and alternative-test comparisons.
+- Include confidence intervals and practical significance.
+- Include limitations.
+- Include a code reference field that can be completed by me after I create the repository.
+- Include a README reference.
+- Contain no fictional team names, student identities, fabricated statistics, or placeholder conclusions.
+
+Use compact tables and well-chosen figures to make the report fit the page limit without omitting required content.
+
+Create both reports/final_report.tex and reports/final_report.pdf.
+
+If the LaTeX compiler is unavailable, preserve the complete source, report the blocker, and provide the exact compilation command. Do not claim a PDF was compiled if it was not.
+
+If student or group details are missing, use explicit editable placeholders rather than inventing names, roll numbers, emails, or contributions.
+
+The detailed technical report can be extensive; the eight-page limit applies to the official submission PDF.
+
+## 23. REFERENCES AND CITATIONS
+
+Create reports/references.md.
+
+Cite the dataset's verified source, relevant official dataset documentation, the professor's supplied course material, and any external sources actually used.
+
+Prefer primary or authoritative sources for variable definitions and methodology.
+
+Do not fabricate references, publication details, URLs, dataset versions, or quotations.
+
+Use external sources only where they materially improve the project's interpretation or verification.
+
+Distinguish source facts from the project's own calculations.
+
+## 24. OPTIONAL ADVANCED EXTENSIONS
+
+After the syllabus-aligned analysis is complete, assess whether one or two extensions would materially improve the project.
+
+Potential options:
+
+- A log-transformed sensitivity analysis.
+- A robust alternative to a mean comparison.
+- Bootstrap confidence intervals.
+- A simple, leakage-safe baseline classifier.
+- An adjusted regression as a secondary analysis.
+
+Do not implement every possible extension.
+
+Include an extension only when it answers a meaningful question, improves interpretation, or exposes a limitation of the primary analysis.
+
+For each extension, explain why it goes beyond the core syllabus, what assumptions it introduces, and whether it changes the interpretation.
+
+If a classifier is included, keep it explicitly secondary to the hypothesis tests.
+
+For a predictive model:
+
+- Define the prediction time.
+- Exclude leakage variables.
+- Use an appropriate train/test split.
+- Fit preprocessing only on training data.
+- Use class-imbalance-aware evaluation where appropriate.
+- Avoid evaluating on training data alone.
+- Do not report performance as evidence of causation.
+
+## 25. PROJECT QUALITY AND DESIGN
+
+The code should be readable, modular, reproducible, and suitable for a college data science project.
+
+Use comments to explain non-obvious decisions, not to narrate every trivial line.
+
+Prefer clear names and simple abstractions.
+
+Use functions where they reduce duplication and make the statistical calculations testable.
+
+Generate plots with appropriate titles, labels, units, and captions.
+
+Use consistent formatting in reports and tables.
+
+Do not create unnecessary abstractions or a production-scale software system that distracts from the statistical investigation.
+
+The final folder must be understandable to a student who is still learning data science.
+
+## 26. FINAL VALIDATION CHECKLIST
+
+Before declaring completion, verify every item below.
+
+### Data integrity
+
+- [ ] The actual CSV was loaded.
+- [ ] The raw file remains unchanged.
+- [ ] Dimensions and important profile results were rechecked.
+- [ ] Duplicate and missingness checks were performed.
+- [ ] Loan-status definitions and eligibility rules were documented.
+- [ ] Potential leakage variables were audited.
+- [ ] Before-and-after counts reconcile.
+- [ ] The encoded-size calculation is correct.
+
+### Statistical validity
+
+- [ ] The final project contains 3–5 valid hypothesis tests.
+- [ ] Hypotheses and test directions were defined before the results were interpreted.
+- [ ] The equality is included in H0.
+- [ ] Each test matches its data type and study design.
+- [ ] Assumptions were checked and documented.
+- [ ] Each test includes the required statistic, p-value, degrees of freedom where applicable, estimate, and 95% confidence interval.
+- [ ] Alternative tests were compared meaningfully.
+- [ ] Practical significance was evaluated.
+- [ ] Multiple-testing limitations were addressed.
+- [ ] No causal claims exceed the study design.
+- [ ] No empirical result is fabricated.
+
+### Software and reproducibility
+
+- [ ] requirements.txt exists and is consistent with the code.
+- [ ] The notebooks run from top to bottom.
+- [ ] Scripts run from the project root.
+- [ ] Reusable functions have suitable tests.
+- [ ] Figures and tables are generated by code.
+- [ ] Paths are portable.
+- [ ] The README commands match the actual project.
+- [ ] Outputs and logs are present.
+- [ ] No unnecessary credentials or external services are required.
+
+### Reporting
+
+- [ ] The supplied LaTeX template was adapted.
+- [ ] The PDF has no more than eight pages.
+- [ ] All empirical claims agree with the computed outputs.
+- [ ] The technical report explains the analysis in depth.
+- [ ] The syllabus mapping uses the actual lecture materials.
+- [ ] The viva document contains project-specific answers.
+- [ ] Limitations are stated honestly.
+- [ ] No fictional group details or placeholder results remain.
+
+### Final audit
+
+Produce a concise validation summary containing:
+
+1. The exact project directory path.
+2. The list of files actually created.
+3. The actual dataset dimensions.
+4. The final encoded-size arithmetic.
+5. The final sample size for each hypothesis test.
+6. The number of tests completed.
+7. Whether all notebooks and scripts executed successfully.
+8. Whether automated checks passed.
+9. Whether the PDF compiled successfully and its page count.
+10. Any unresolved limitations or tasks requiring my input.
+
+Do not report a successful check unless it was actually executed.
+
+## 27. EXECUTION ORDER
+
+Work in the following order:
+
+Phase 1 — Inspect instructions, template, lectures, profile, and actual CSV.
+
+Phase 2 — Validate the schema, define the outcome population, and audit potential leakage.
+
+Phase 3 — Formulate the research questions and select the statistical tests.
+
+Phase 4 — Implement cleaning, encoding, transformations, and the size calculation.
+
+Phase 5 — Generate EDA, descriptive tables, and before-and-after comparisons.
+
+Phase 6 — Run and verify the hypothesis tests and confidence intervals.
+
+Phase 7 — Build the reusable code, notebooks, scripts, and automated tests.
+
+Phase 8 — Generate the README, detailed technical report, syllabus mapping, data dictionary, and viva questions.
+
+Phase 9 — Adapt and compile the professor's LaTeX template.
+
+Phase 10 — Execute the final validation checklist and report any unresolved issues.
+
+Do not stop after generating an outline or the first notebook.
+
+If something is missing, distinguish between work that can proceed and work that genuinely requires the missing input.
+
+Your ultimate goal is a scientifically defensible, syllabus-aligned, reproducible, thoroughly explained, and professor-compliant midterm project folder—not merely an impressive-looking report.
+
+
+
+also things to be noted is that dont read the .csv file directly instead use the LendingClub_Dataset_Profile_Report aas the data substitute and create the prompts accordingly and then after that directly put the data into the script that you make and make sure you are not reading the /.csv or parsing it directly 
+also i am attaching the project guidelines and all the template given by the prof again and strictly adhwere to it alongside all the things given in the prompt 
+
+
+our group members are Satyam Singh 2024514 Satguru Saran 2024510 Krishiv Vats 2024308 and group name is NullPointer
+
+create accordingly and as fast as possible

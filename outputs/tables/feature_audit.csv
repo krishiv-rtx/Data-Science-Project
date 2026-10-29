@@ -1,0 +1,152 @@
+feature,type,missing_count,role,time_availability,decision
+id,text,0,identifier/text,Not a quantitative measure,"Exclude; privacy, cardinality, or uncertain meaning"
+member_id,all_missing,2260701,identifier/text,Not a quantitative measure,"Exclude; privacy, cardinality, or uncertain meaning"
+loan_amnt,numeric,33,selected descriptor,Origination candidate; exact vintage definition caveat,Use descriptively; no application-time predictive claim
+funded_amnt,numeric,33,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+funded_amnt_inv,numeric,33,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+term,text,33,selected descriptor,Origination candidate; exact vintage definition caveat,Use descriptively; no application-time predictive claim
+int_rate,numeric,33,selected descriptor,Origination candidate; exact vintage definition caveat,Use descriptively; no application-time predictive claim
+installment,numeric,33,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+grade,text,33,selected descriptor,Origination candidate; exact vintage definition caveat,Use descriptively; no application-time predictive claim
+sub_grade,text,33,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+emp_title,text,167002,identifier/text,Not a quantitative measure,"Exclude; privacy, cardinality, or uncertain meaning"
+emp_length,text,146940,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+home_ownership,text,33,selected descriptor,Origination candidate; exact vintage definition caveat,Use descriptively; no application-time predictive claim
+annual_inc,numeric,37,selected descriptor,Origination candidate; exact vintage definition caveat,Use descriptively; no application-time predictive claim
+verification_status,text,33,selected descriptor,Origination candidate; exact vintage definition caveat,Use descriptively; no application-time predictive claim
+issue_d,text,33,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+loan_status,text,33,outcome,After origination,Exclude from features; defines terminal groups
+pymnt_plan,text,33,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+url,text,33,identifier/text,Not a quantitative measure,"Exclude; privacy, cardinality, or uncertain meaning"
+desc,text,2134636,identifier/text,Not a quantitative measure,"Exclude; privacy, cardinality, or uncertain meaning"
+purpose,text,33,selected descriptor,Origination candidate; exact vintage definition caveat,Use descriptively; no application-time predictive claim
+title,text,23359,identifier/text,Not a quantitative measure,"Exclude; privacy, cardinality, or uncertain meaning"
+zip_code,text,34,identifier/text,Not a quantitative measure,"Exclude; privacy, cardinality, or uncertain meaning"
+addr_state,text,33,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+dti,numeric,1744,selected descriptor,Origination candidate; exact vintage definition caveat,Use descriptively; no application-time predictive claim
+delinq_2yrs,numeric,62,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+earliest_cr_line,text,62,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+fico_range_low,numeric,33,selected descriptor,Origination candidate; exact vintage definition caveat,Use descriptively; no application-time predictive claim
+fico_range_high,numeric,33,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+inq_last_6mths,numeric,63,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+mths_since_last_delinq,numeric,1158535,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+mths_since_last_record,numeric,1901545,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+open_acc,numeric,62,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+pub_rec,numeric,62,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+revol_bal,numeric,33,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+revol_util,numeric,1835,selected descriptor,Origination candidate; exact vintage definition caveat,Use descriptively; no application-time predictive claim
+total_acc,numeric,62,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+initial_list_status,text,33,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+out_prncp,numeric,33,repayment process,After origination or uncertain future information,Exclude from origination features
+out_prncp_inv,numeric,33,repayment process,After origination or uncertain future information,Exclude from origination features
+total_pymnt,numeric,33,repayment process,After origination or uncertain future information,Exclude from origination features
+total_pymnt_inv,numeric,33,repayment process,After origination or uncertain future information,Exclude from origination features
+total_rec_prncp,numeric,33,repayment process,After origination or uncertain future information,Exclude from origination features
+total_rec_int,numeric,33,repayment process,After origination or uncertain future information,Exclude from origination features
+total_rec_late_fee,numeric,33,repayment process,After origination or uncertain future information,Exclude from origination features
+recoveries,numeric,33,repayment process,After origination or uncertain future information,Exclude from origination features
+collection_recovery_fee,numeric,33,repayment process,After origination or uncertain future information,Exclude from origination features
+last_pymnt_d,text,2460,repayment process,After origination or uncertain future information,Exclude from origination features
+last_pymnt_amnt,numeric,33,repayment process,After origination or uncertain future information,Exclude from origination features
+next_pymnt_d,text,1345343,repayment process,After origination or uncertain future information,Exclude from origination features
+last_credit_pull_d,text,105,repayment process,After origination or uncertain future information,Exclude from origination features
+last_fico_range_high,numeric,33,repayment process,After origination or uncertain future information,Exclude from origination features
+last_fico_range_low,numeric,33,repayment process,After origination or uncertain future information,Exclude from origination features
+collections_12_mths_ex_med,numeric,178,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+mths_since_last_major_derog,numeric,1679926,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+policy_code,numeric,33,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+application_type,text,33,selected descriptor,Origination candidate; exact vintage definition caveat,Use descriptively; no application-time predictive claim
+annual_inc_joint,numeric,2139991,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+dti_joint,numeric,2139995,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+verification_status_joint,text,2144971,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+acc_now_delinq,numeric,62,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+tot_coll_amt,numeric,70309,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+tot_cur_bal,numeric,70309,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+open_acc_6m,numeric,866163,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+open_act_il,numeric,866162,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+open_il_12m,numeric,866162,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+open_il_24m,numeric,866162,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+mths_since_rcnt_il,numeric,909957,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+total_bal_il,numeric,866162,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+il_util,numeric,1068883,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+open_rv_12m,numeric,866162,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+open_rv_24m,numeric,866162,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+max_bal_bc,numeric,866162,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+all_util,numeric,866381,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+total_rev_hi_lim,numeric,70309,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+inq_fi,numeric,866162,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+total_cu_tl,numeric,866163,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+inq_last_12m,numeric,866163,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+acc_open_past_24mths,numeric,50063,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+avg_cur_bal,numeric,70379,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+bc_open_to_buy,numeric,74968,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+bc_util,numeric,76104,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+chargeoff_within_12_mths,numeric,178,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+delinq_amnt,numeric,62,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+mo_sin_old_il_acct,numeric,139104,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+mo_sin_old_rev_tl_op,numeric,70310,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+mo_sin_rcnt_rev_tl_op,numeric,70310,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+mo_sin_rcnt_tl,numeric,70309,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+mort_acc,numeric,50063,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+mths_since_recent_bc,numeric,73445,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+mths_since_recent_bc_dlq,numeric,1741000,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+mths_since_recent_inq,numeric,295468,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+mths_since_recent_revol_delinq,numeric,1520342,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+num_accts_ever_120_pd,numeric,70309,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+num_actv_bc_tl,numeric,70309,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+num_actv_rev_tl,numeric,70309,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+num_bc_sats,numeric,58623,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+num_bc_tl,numeric,70309,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+num_il_tl,numeric,70309,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+num_op_rev_tl,numeric,70309,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+num_rev_accts,numeric,70310,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+num_rev_tl_bal_gt_0,numeric,70309,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+num_sats,numeric,58623,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+num_tl_120dpd_2m,numeric,153690,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+num_tl_30dpd,numeric,70309,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+num_tl_90g_dpd_24m,numeric,70309,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+num_tl_op_past_12m,numeric,70309,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+pct_tl_nvr_dlq,numeric,70464,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+percent_bc_gt_75,numeric,75412,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+pub_rec_bankruptcies,numeric,1398,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+tax_liens,numeric,138,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+tot_hi_cred_lim,numeric,70309,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+total_bal_ex_mort,numeric,50063,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+total_bc_limit,numeric,50063,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+total_il_high_credit_limit,numeric,70309,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+revol_bal_joint,numeric,2152681,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+sec_app_fico_range_low,numeric,2152680,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+sec_app_fico_range_high,numeric,2152680,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+sec_app_earliest_cr_line,text,2152680,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+sec_app_inq_last_6mths,numeric,2152680,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+sec_app_mort_acc,numeric,2152680,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+sec_app_open_acc,numeric,2152680,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+sec_app_revol_util,numeric,2154517,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+sec_app_open_act_il,numeric,2152680,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+sec_app_num_rev_accts,numeric,2152680,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+sec_app_chargeoff_within_12_mths,numeric,2152680,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+sec_app_collections_12_mths_ex_med,numeric,2152680,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+sec_app_mths_since_last_major_derog,numeric,2224759,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+hardship_flag,text,33,repayment process,After origination or uncertain future information,Exclude from origination features
+hardship_type,text,2249784,repayment process,After origination or uncertain future information,Exclude from origination features
+hardship_reason,text,2249784,repayment process,After origination or uncertain future information,Exclude from origination features
+hardship_status,text,2249784,repayment process,After origination or uncertain future information,Exclude from origination features
+deferral_term,numeric,2249784,repayment process,After origination or uncertain future information,Exclude from origination features
+hardship_amount,numeric,2249784,repayment process,After origination or uncertain future information,Exclude from origination features
+hardship_start_date,text,2249784,repayment process,After origination or uncertain future information,Exclude from origination features
+hardship_end_date,text,2249784,repayment process,After origination or uncertain future information,Exclude from origination features
+payment_plan_start_date,text,2249784,repayment process,After origination or uncertain future information,Exclude from origination features
+hardship_length,numeric,2249784,repayment process,After origination or uncertain future information,Exclude from origination features
+hardship_dpd,numeric,2249784,repayment process,After origination or uncertain future information,Exclude from origination features
+hardship_loan_status,text,2249784,repayment process,After origination or uncertain future information,Exclude from origination features
+orig_projected_additional_accrued_interest,numeric,2252050,repayment process,After origination or uncertain future information,Exclude from origination features
+hardship_payoff_balance_amount,numeric,2249784,repayment process,After origination or uncertain future information,Exclude from origination features
+hardship_last_payment_amount,numeric,2249784,repayment process,After origination or uncertain future information,Exclude from origination features
+disbursement_method,text,33,unselected,Not independently verified,Exclude from selected representation pending authoritative dictionary
+debt_settlement_flag,text,33,repayment process,After origination or uncertain future information,Exclude from origination features
+debt_settlement_flag_date,text,2226455,repayment process,After origination or uncertain future information,Exclude from origination features
+settlement_status,text,2226455,repayment process,After origination or uncertain future information,Exclude from origination features
+settlement_date,text,2226455,repayment process,After origination or uncertain future information,Exclude from origination features
+settlement_amount,numeric,2226455,repayment process,After origination or uncertain future information,Exclude from origination features
+settlement_percentage,numeric,2226455,repayment process,After origination or uncertain future information,Exclude from origination features
+settlement_term,numeric,2226455,repayment process,After origination or uncertain future information,Exclude from origination features
