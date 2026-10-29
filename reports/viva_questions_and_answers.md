@@ -6,7 +6,11 @@
 
 **Q: Why this problem rather than a default classifier?**
 
+<<<<<<< HEAD
 The assignment centres on inference. We quantify terminal-outcome differences, uncertainty and practical importance. The contribution beyond status-count exploratory data analysis (EDA) is a declared estimand and a defensible test, not a claim that lending risk has never been studied.
+=======
+The assignment centres on inference. We quantify terminal-outcome differences, uncertainty and practical importance. The contribution beyond status-count EDA is a declared estimand and a defensible test, not a claim that lending risk has never been studied.
+>>>>>>> origin/main
 
 **Follow-up: What is the primary estimand?**
 
@@ -50,11 +54,19 @@ Not necessarily; excluded cases may differ. Complete-case rules are transparent 
 
 **Avoid:** Claiming that a large retained sample eliminates missingness bias.
 
+<<<<<<< HEAD
 ## 5. Outliers and interquartile range (IQR)
 
 **Q: Why not delete all outliers?**
 
 The IQR rule flags unusual values, not errors. Primary tests retain observations; cap and nonnegative-debt-to-income ratio (DTI) sensitivities disclose their changed estimands.
+=======
+## 5. Outliers and IQR
+
+**Q: Why not delete all outliers?**
+
+The IQR rule flags unusual values, not errors. Primary tests retain observations; cap and nonnegative-DTI sensitivities disclose their changed estimands.
+>>>>>>> origin/main
 
 **Follow-up: What is the fence?**
 
@@ -164,7 +176,11 @@ A preselected Welch procedure avoids a data-dependent selection rule and does no
 
 Terminal loans in the 60-month and 36-month groups. Charged Off is the event; Current is excluded, not counted as no event.
 
+<<<<<<< HEAD
 **Follow-up: Why pooled standard error (SE) for z but not the confidence interval (CI)?**
+=======
+**Follow-up: Why pooled SE for z but not the CI?**
+>>>>>>> origin/main
 
 The test imposes equal proportions under H0; the interval estimates the unconstrained difference using separate group proportions.
 
@@ -200,7 +216,11 @@ The numerical survival function underflows; mathematical tail probability is not
 
 A repeated-sampling procedure would cover the fixed parameter in 95% of comparable samples if its assumptions hold.
 
+<<<<<<< HEAD
 **Follow-up: What is SE versus standard deviation (SD)?**
+=======
+**Follow-up: What is SE versus SD?**
+>>>>>>> origin/main
 
 SD describes individual variation; SE describes uncertainty in an estimator. The mean-difference SE combines each variance divided by its sample size.
 
@@ -302,8 +322,11 @@ Report that evidence is insufficient to reject at the chosen level; discuss the 
 
 **Avoid:** Hiding missing materials or inventing lecture numbers.
 
+<<<<<<< HEAD
 
 
 ## Reading help
 
 [Acronym directory](acronym_directory.md) expands statistical shorthand. [Plain-language attribute guide](attributes_plain_language.md) explains the selected variables and inventories all source fields.
+=======
+>>>>>>> origin/main

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # NullPointer | LendingClub repayment outcomes
 
 **CSE558 Data Science Â· IIIT-Delhi Â· Monsoon 2026**
@@ -214,6 +215,11 @@ lendingclub-midterm-project/
 ```
 
 ## Installation, execution and audit details
+=======
+# NullPointer - LendingClub midterm project
+
+Statistical inference on observed loan repayment outcomes. Team: Satyam Singh (2024514), Satguru Saran (2024510), Krishiv Vats (2024308). CSE558, IIIT-Delhi, Monsoon 2026.
+>>>>>>> origin/main
 
 ## What was analysed
 
@@ -259,7 +265,11 @@ Install MiKTeX/TeX Live with `pdflatex`, then run `python scripts/compile_report
 
 ## Known limits and submission edits
 
+<<<<<<< HEAD
 Lectures 1-12, quiz materials and practice problems were absent; exact syllabus coverage and the 80% target are unverified. Supply those to complete the course mapping. The report includes the supplied institute emails and project repository URL. The contribution column has been removed as requested. No Git repository was created. Review selection, censoring, missingness, dependence and subjective thresholds in the limitations document.
+=======
+Lectures 1-12, quiz materials and practice problems were absent; exact syllabus coverage and the 80% target are unverified. Supply those to complete the course mapping. The report includes editable email/contribution and code URL fields, because those were not supplied. Replace them with true group details and your repository URL before submission. No Git repository was created. Review selection, censoring, missingness, dependence and subjective thresholds in the limitations document.
+>>>>>>> origin/main
 
 ## Troubleshooting and completion checklist
 
@@ -270,6 +280,7 @@ File-not-found: supply a quoted absolute path with `--data` or place the input i
 - Verify all unit tests and notebook executions succeeded in outputs/validation.json.
 - Verify PDF compilation and page count in outputs/pdf_validation.json.
 - Inspect the final PDF visually, fill the personal/code fields and supply missing syllabus references.
+<<<<<<< HEAD
 
 ## Acronyms and selected attributes at a glance
 
@@ -318,3 +329,5 @@ File-not-found: supply a quoted absolute path with `--data` or place the input i
 ## Rebuilding the replacement plots
 
 Run `python scripts/generate_explainer_figures.py --data "../accepted_2007_to_2018Q4.csv"` once to create the aggregate histogram and purpose counts. Later runs can omit `--data` to use `outputs/tables/explainer_plot_counts.json`. This cache stores bin counts and category totals, not borrower rows. Then regenerate reports with `python scripts/generate_reports.py` and compile the PDF.
+=======
+>>>>>>> origin/main

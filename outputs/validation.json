@@ -15,6 +15,7 @@
   "encoded_size_actual_matrix": true,
   "pdf": {
     "compiled": true,
+<<<<<<< HEAD
     "pages": 8
   },
   "visual_pdf_review": "Eight-page mathematical report reviewed",
@@ -33,4 +34,14 @@
     ],
     "unchanged_empirical_results": true
   }
+=======
+    "pages": 4
+  },
+  "visual_pdf_review": "Manual review record matches this PDF",
+  "unresolved": [
+    "Lecture PDFs, quizzes and practice problems absent; exact syllabus mapping unverified",
+    "Original download URL, acquisition date and licence unverified",
+    "User must fill true institute emails, contributions and repository URL before submission"
+  ]
+>>>>>>> origin/main
 }

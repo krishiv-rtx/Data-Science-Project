@@ -28,6 +28,7 @@ Source types are inferred by a full chunked scan; all source values are first lo
 - One-hot columns: one column per observed category of grade, term, home_ownership, verification_status, purpose and application_type; no dropped reference level, because no regression is fitted. Each value is 0 or 1. Exact columns are in outputs/encoded_size.json.
 - Numeric representation: six numeric columns preserved on original scales, with complete-case rows only. No scaling or imputation. There is no predictive model.
 - `log1p(annual_inc)`: natural logarithm of 1 + income for nonnegative observed values, including zero. It is a descriptive chart only; no mean comparison uses this scale. Negative incomes are not logged.
+<<<<<<< HEAD
 - interquartile range (IQR) flags: below Q1-1.5*(Q3-Q1) or above Q3+1.5*(Q3-Q1), calculated per numeric field on nonmissing source values. No deletion follows a flag.
 - Capped sensitivity values: min(x, pooled terminal 99th percentile); only sensitivity comparisons use them.
 
@@ -37,3 +38,9 @@ The complete 151-or-other-source-column inventory is outputs/tables/feature_audi
 ## Reading help
 
 [Acronym directory](acronym_directory.md) expands statistical shorthand. [Plain-language attribute guide](attributes_plain_language.md) explains the selected variables and inventories all source fields.
+=======
+- IQR flags: below Q1-1.5*(Q3-Q1) or above Q3+1.5*(Q3-Q1), calculated per numeric field on nonmissing source values. No deletion follows a flag.
+- Capped sensitivity values: min(x, pooled terminal 99th percentile); only sensitivity comparisons use them.
+
+The complete 151-or-other-source-column inventory is outputs/tables/feature_audit.csv; its row count follows the actual file. Selected numeric/categorical variables appear in EDA or size auditing. Only int_rate, dti, grade, term and loan_status enter tests. No field is certified for application-time prediction. Identifiers and repayment-process variables are excluded from the encoded representation. ID uniqueness cannot establish borrower uniqueness.
+>>>>>>> origin/main

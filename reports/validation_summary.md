@@ -20,13 +20,18 @@ Actual encoded arithmetic: 1,344,080 x 40 = 53,763,200 cells, above 3,000,000. T
 - Eleven automated unit tests passed; actual log is outputs/logs/unit_tests.log. Synthetic inputs were used only for software tests.
 - All three notebooks executed from top to bottom in separate Python processes (12 code cells total); actual outputs are embedded. This is the included plain-Python executor, not a claim that a Jupyter kernel was installed or tested.
 - Accounting and result-consistency assertions passed.
+<<<<<<< HEAD
 - The supplied-template adaptation compiled; PDF has 8 pages, below the eight-page cap. Manual visual review record matches this PDF: True. The delivered version was compiled with Tectonic, rendered and inspected; future regenerated PDFs must be checked again. Underfull line warnings were present in the delivered build; no overfull boxes were reported.
+=======
+- The supplied-template adaptation compiled; PDF has 4 pages, below the eight-page cap. Manual visual review record matches this PDF: True. The delivered version was compiled with Tectonic, rendered and inspected; future regenerated PDFs must be checked again. Underfull line warnings were present in the delivered build; no overfull boxes were reported.
+>>>>>>> origin/main
 - Generated report, figure, table and notebook scripts executed. An initial compiler wrapper validation failed because its Python interpreter lacked pypdf; the completed build used the bundled PDF runtime successfully. An initial sandbox test run could not write TEMP; the tests passed in the normal permission context.
 
 ## Remaining user inputs / scientific limitations
 
 - Supply lecture, quiz and practice files for exact syllabus mapping; no invented lecture references.
 - Confirm historical provenance/licence and source definitions.
+<<<<<<< HEAD
 - Supplied institute emails and repository URL are entered; the contribution column was removed as requested.
 - Review selection, censoring, dependence, missingness and subjective practical thresholds before presenting the findings.
 
@@ -34,3 +39,9 @@ The full file list and SHA-256 of every packaged file are in FILE_MANIFEST.json.
 
 
 Presentation update: replaced the three requested plots, added acronym and attribute references, independently cross-checked all four stored tests and report intervals, reran eleven unit checks and three notebooks successfully. Underlying empirical results remain unchanged.
+=======
+- Fill institute emails, actual contributions and repository URL. Team names and roll numbers are already entered.
+- Review selection, censoring, dependence, missingness and subjective practical thresholds before presenting the findings.
+
+The full file list and SHA-256 of every packaged file are in FILE_MANIFEST.json. This is a local deliverable; no GitHub repository or commit was created.
+>>>>>>> origin/main

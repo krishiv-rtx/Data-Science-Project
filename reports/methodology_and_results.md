@@ -2,7 +2,11 @@
 
 Read analysis_plan.md for hypotheses, thresholds, direction and eligibility fixed before comparisons. Four tests executed on the full local file; observations were not fabricated from the preliminary profile.
 
+<<<<<<< HEAD
 | Question | n (CO/FP or total) | Estimate | 95% confidence interval (CI) | Statistic | df | p | Practical conclusion |
+=======
+| Question | n (CO/FP or total) | Estimate | 95% CI | Statistic | df | p | Practical conclusion |
+>>>>>>> origin/main
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | int_rate | 268,559 / 1,076,751 | 3.08743 | [3.06698, 3.10787] | 295.97 | 390,130 | < 2.23e-308 (floating-point underflow) | CI beyond positive threshold |
 | dti | 268,488 / 1,076,448 | 2.35957 | [2.31027, 2.40886] | 93.8212 | 390,672 | < 2.23e-308 (floating-point underflow) | CI beyond positive threshold |
@@ -20,11 +24,19 @@ Read analysis_plan.md for hypotheses, thresholds, direction and eligibility fixe
 
 For two independent groups A and B, estimate delta = mean(A)-mean(B). A denotes Charged Off for numeric comparisons and 60 months for the term comparison. Sample means describe these groups; a population estimand requires an assumed repeatable sampling mechanism. All tests are observational.
 
+<<<<<<< HEAD
 **Welch t:** Let n_A,n_B be counts and s_A²,s_B² sample variances (divisor n-1). standard error (SE) = sqrt(s_A²/n_A + s_B²/n_B). t = delta/SE under H0 delta=0. Degrees of freedom nu = (u+v)²/[u²/(n_A-1)+v²/(n_B-1)], where u=s_A²/n_A and v=s_B²/n_B. The two-sided p-value is 2*P(T_nu >= |t|); the 95% interval is delta +/- t_(.975,nu)*SE. It allows unequal variances but still requires independent observations and a reasonable mean sampling approximation. It is not a normality test. Large groups do not excuse extreme leverage or selection bias.
 
 **Two-proportion z:** x_A and x_B count Charged Off loans, n_A and n_B include only observed terminal loans of the given term. p_hat_A=x_A/n_A, p_hat_B=x_B/n_B. Under equal proportions use p_pool=(x_A+x_B)/(n_A+n_B). SE0=sqrt[p_pool*(1-p_pool)*(1/n_A+1/n_B)]. z=(p_hat_A-p_hat_B)/SE0; p=2*P(Z>=|z|). The large-sample confidence interval instead uses SE=sqrt[p_hat_A*(1-p_hat_A)/n_A+p_hat_B*(1-p_hat_B)/n_B]. The null-pooled SE is not reused for the interval. Expected successes/failures must be adequate; the implementation rejects expected counts below five. df is not applicable for the standard normal reference. Without continuity correction, z² equals the 2x2 Pearson chi-square statistic, checked in code and tests.
 
 **Chi-square:** O_ij is the observed grade-outcome count; E_ij = row_i_total * column_j_total / N. Sum (O-E)²/E to obtain chi-square. Under independence the approximate reference has (r-1)*(c-1) degrees of freedom, six for seven grades and two outcomes. The p-value is the upper-tail probability. This tail convention detects any association and is not a directional claim that every grade's event rate rises. Cramer's V = sqrt(chi-square/[N*min(r-1,c-1)]); here min=1. V measures association magnitude without a sign. A percentile interval from 1,000 seeded multinomial resamples of the observed cell proportions describes independent and identically distributed (IID) sampling uncertainty; it is an extension and does not correct dependence or selection. Grade-specific proportions remain necessary for interpretation.
+=======
+**Welch t:** Let n_A,n_B be counts and s_A²,s_B² sample variances (divisor n-1). SE = sqrt(s_A²/n_A + s_B²/n_B). t = delta/SE under H0 delta=0. Degrees of freedom nu = (u+v)²/[u²/(n_A-1)+v²/(n_B-1)], where u=s_A²/n_A and v=s_B²/n_B. The two-sided p-value is 2*P(T_nu >= |t|); the 95% interval is delta +/- t_(.975,nu)*SE. It allows unequal variances but still requires independent observations and a reasonable mean sampling approximation. It is not a normality test. Large groups do not excuse extreme leverage or selection bias.
+
+**Two-proportion z:** x_A and x_B count Charged Off loans, n_A and n_B include only observed terminal loans of the given term. p_hat_A=x_A/n_A, p_hat_B=x_B/n_B. Under equal proportions use p_pool=(x_A+x_B)/(n_A+n_B). SE0=sqrt[p_pool*(1-p_pool)*(1/n_A+1/n_B)]. z=(p_hat_A-p_hat_B)/SE0; p=2*P(Z>=|z|). The large-sample confidence interval instead uses SE=sqrt[p_hat_A*(1-p_hat_A)/n_A+p_hat_B*(1-p_hat_B)/n_B]. The null-pooled SE is not reused for the interval. Expected successes/failures must be adequate; the implementation rejects expected counts below five. df is not applicable for the standard normal reference. Without continuity correction, z² equals the 2x2 Pearson chi-square statistic, checked in code and tests.
+
+**Chi-square:** O_ij is the observed grade-outcome count; E_ij = row_i_total * column_j_total / N. Sum (O-E)²/E to obtain chi-square. Under independence the approximate reference has (r-1)*(c-1) degrees of freedom, six for seven grades and two outcomes. The p-value is the upper-tail probability. This tail convention detects any association and is not a directional claim that every grade's event rate rises. Cramer's V = sqrt(chi-square/[N*min(r-1,c-1)]); here min=1. V measures association magnitude without a sign. A percentile interval from 1,000 seeded multinomial resamples of the observed cell proportions describes IID sampling uncertainty; it is an extension and does not correct dependence or selection. Grade-specific proportions remain necessary for interpretation.
+>>>>>>> origin/main
 
 **Holm:** Sort four p-values p_(1)<=...<=p_(4), multiply each by 4,3,2,1 respectively, then apply cumulative maxima and cap at one. Map adjusted values back to original questions. This addresses repeated testing; it does not make overlapping grade/rate associations independent. Intervals remain ordinary marginal intervals.
 
@@ -171,7 +183,11 @@ Accepted-loan selection excludes rejected applications. Terminal-outcome selecti
 
 Loans may share borrowers or economic shocks. Unique loan IDs do not verify independent borrowers, and no reliable borrower identifier is established. Standard errors, bootstrap intervals and p-values assume independent sampling and can be too optimistic. The dataset is a historical selected collection, not a probability sample; treat inference as model-based and conditional on this collection rather than automatically representative of future lending.
 
+<<<<<<< HEAD
 Complete-case exclusion can be selective. debt-to-income ratio (DTI) extremes can affect mean comparisons; retained-extreme primary results and capped sensitivity results target different quantities. A large sample improves some approximations but cannot remove bias, confounding or dependence. Marginal 95% intervals are not simultaneous; Holm controls family-wise error only under valid individual p-values. Thresholds are declared analytical judgments, not authoritative lending standards.
+=======
+Complete-case exclusion can be selective. DTI extremes can affect mean comparisons; retained-extreme primary results and capped sensitivity results target different quantities. A large sample improves some approximations but cannot remove bias, confounding or dependence. Marginal 95% intervals are not simultaneous; Holm controls family-wise error only under valid individual p-values. Thresholds are declared analytical judgments, not authoritative lending standards.
+>>>>>>> origin/main
 
 The exact original download URL, original access date, redistribution licence and version-specific dictionary were not supplied. The local SHA-256 identifies the file, not its original source. Lecture PDFs, quizzes and practice problems were not provided, so exact lecture mapping and the requested 80% syllabus claim cannot be verified. No identities, emails, contributions, sources, or statistics were invented.
 
@@ -179,8 +195,11 @@ The exact original download URL, original access date, redistribution licence an
 ## Additional source-quality review
 
 The source contains 32 total-funded footer records and 1 policy-section separator, all with missing loan amount/status; these are not loans and are excluded from every test. There are 2,260,668 loan records. Two observed DTI values are negative and 135 equal 999; their exact semantics are unverified. Primary inference retains them transparently. Excluding the two negative DTI values gives difference 2.35953, CI [2.31024, 2.40882], leaving the interpretation unchanged. There are 1,667 zero incomes and 7,343 utilisation values above 100; these are flagged, not automatically deleted. No negative income was observed.
+<<<<<<< HEAD
 
 
 ## Reading help
 
 [Acronym directory](acronym_directory.md) expands statistical shorthand. [Plain-language attribute guide](attributes_plain_language.md) explains the selected variables and inventories all source fields.
+=======
+>>>>>>> origin/main

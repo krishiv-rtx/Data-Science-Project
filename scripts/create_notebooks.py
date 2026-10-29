@@ -14,11 +14,14 @@ def md(text):return dict(cell_type='markdown',metadata={},source=text.splitlines
 def code(text):return dict(cell_type='code',metadata={},source=text.splitlines(keepends=True),execution_count=None,outputs=[])
 def save(name,cells):
     for i,cell in enumerate(cells):cell['id']=name[:2]+'-'+str(i).zfill(3)
+<<<<<<< HEAD
     for cell in cells:
         if cell['cell_type']=='markdown':
             text=''.join(cell['source']).replace('../figures/eda/income_transform.png','../figures/eda/income_and_loan_amount.png').replace('../figures/eda/missingness.png','../figures/eda/loan_purposes.png')
             text=text.replace('![Income scales]','![Logged income and requested loan amounts]').replace('![Missingness]','![Stated borrowing purposes]').replace('The figure displays only the 20 most incomplete fields; the CSV table contains all fields.','The purpose bars compare common reasons for borrowing. Missingness remains available in the complete audit table.')
             cell['source']=text.splitlines(keepends=True)
+=======
+>>>>>>> origin/main
     p=ROOT/'notebooks'/name;p.parent.mkdir(exist_ok=True)
     p.write_text(json.dumps(dict(cells=cells,metadata={'kernelspec':{'display_name':'Python 3','language':'python','name':'python3'},'language_info':{'name':'python','version':'3.14'}},nbformat=4,nbformat_minor=5),indent=2),encoding='utf-8')
 save('01_data_audit.ipynb',[

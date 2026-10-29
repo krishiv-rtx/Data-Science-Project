@@ -5,7 +5,11 @@ ROOT=Path(__file__).resolve().parents[1]
 excluded={'__pycache__','tmp','.venv','.ipynb_checkpoints'}
 def files():
     return sorted(p for p in ROOT.rglob('*') if p.is_file() and not excluded.intersection(p.relative_to(ROOT).parts)
+<<<<<<< HEAD
         and p.suffix not in {'.pyc','.aux','.out','.xdv'} and p.name!='final_report.log' and p.name!='FILE_MANIFEST.json')
+=======
+        and p.suffix not in {'.pyc','.aux','.out'} and p.name!='final_report.log' and p.name!='FILE_MANIFEST.json')
+>>>>>>> origin/main
 listing=[{'path':p.relative_to(ROOT).as_posix(),'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in files()]
 (ROOT/'FILE_MANIFEST.json').write_text(json.dumps({'note':'Manifest excludes itself; source raw CSV is intentionally external','files':listing},indent=2),encoding='utf-8')
 target=ROOT.parent/'NullPointer_LendingClub_Midterm_Project.zip'

@@ -6,9 +6,15 @@ Satyam Singh (2024514), Satguru Saran (2024510), Krishiv Vats (2024308). Emails 
 
 ## Part A - Framing and scope
 
+<<<<<<< HEAD
 LendingClub's historical accepted-loan records support questions about how origination descriptors relate to observed repayment outcomes. The purpose is not to build a classifier or to show that every non-paid account defaulted. Basic exploratory data analysis (EDA) asks what statuses, distributions and missingness patterns exist. The inferential question instead quantifies how large the terminal-outcome differences are, whether uncertainty excludes zero, and whether a declared meaningful threshold is exceeded. This is the project's contribution relative to status-count EDA, not a claim of research novelty in the wider literature.
 
 The primary question compares issued rates between Charged Off and Fully Paid loans. Supporting questions compare debt-to-income ratio (DTI) means, grade association and term-specific charge-off proportions. One loan is one observation. Descriptive statements apply to this file; inference is conditional on an assumed independent historical sampling mechanism; no predictive performance or causal effects are claimed.
+=======
+LendingClub's historical accepted-loan records support questions about how origination descriptors relate to observed repayment outcomes. The purpose is not to build a classifier or to show that every non-paid account defaulted. Basic EDA asks what statuses, distributions and missingness patterns exist. The inferential question instead quantifies how large the terminal-outcome differences are, whether uncertainty excludes zero, and whether a declared meaningful threshold is exceeded. This is the project's contribution relative to status-count EDA, not a claim of research novelty in the wider literature.
+
+The primary question compares issued rates between Charged Off and Fully Paid loans. Supporting questions compare DTI means, grade association and term-specific charge-off proportions. One loan is one observation. Descriptive statements apply to this file; inference is conditional on an assumed independent historical sampling mechanism; no predictive performance or causal effects are claimed.
+>>>>>>> origin/main
 
 ## Part B - Dataset and full-file audit
 
@@ -52,7 +58,11 @@ Numeric fields are parsed after inspecting units/format; trailing percent symbol
 
 Joint, hardship and settlement fields may be structurally missing when their conditions do not apply; the code preserves source missingness and does not infer missing-at-random from it. Whole-column mean/zero imputation would invent values and narrow uncertainty, so it is not used. No missingness mechanism is proved by the observed data.
 
+<<<<<<< HEAD
 | Field | interquartile range (IQR) flags | Flag % | Lower fence | Upper fence |
+=======
+| Field | IQR flags | Flag % | Lower fence | Upper fence |
+>>>>>>> origin/main
 | --- | --- | --- | --- | --- |
 | loan_amnt | 35,215 | 1.55773 | -10,000 | 38,000 |
 | int_rate | 41,099 | 1.818 | -0.26 | 25.74 |
@@ -70,9 +80,15 @@ Before encoding: 1,345,310 terminal rows and 12 selected attributes. After repre
 1. `status.png` shows all source status counts, including unresolved and missing labels. It makes denominator selection visible, but does not estimate lifetime default probability.
 2. `outcome_boxplots.png` compares rate and DTI medians/IQRs by terminal outcome. Fliers are hidden for legibility; every eligible value remains in the tests and full extrema are in numeric_summary.csv. Boxplots do not by themselves establish mean significance.
 3. `category_rates.png` shows observed terminal charge-off percentages by grade and term. Group counts are provided in the adjacent saved contingency tables. Patterns may reflect underwriting, borrower mix and outcome maturity rather than causal grade/term effects.
+<<<<<<< HEAD
 4. `income_and_loan_amount.png` pairs log(1+income) with the requested-loan-amount histogram. It shows income on a compressed scale and the sizes of requested loans; no Gaussianity is claimed.
 5. `income_dti.png` is a reproducible 5,000-or-smaller random descriptive sample, seed 558. It visualises possible leverage/outliers without dumping millions of observations; all statistical tests use full eligible groups.
 6. `loan_purposes.png` shows how many loans were requested for each stated purpose. `group_mean_comparison.png` contrasts the two outcome groups on original-scale average rate and debt burden. Missingness remains fully audited in the tables.
+=======
+4. `income_transform.png` puts the full original income range beside log(1+income). It reveals how scale affects visibility of the central mass, not whether income is Gaussian or whether a loan will fail.
+5. `income_dti.png` is a reproducible 5,000-or-smaller random descriptive sample, seed 558. It visualises possible leverage/outliers without dumping millions of observations; all statistical tests use full eligible groups.
+6. `missingness.png` shows the 20 most incomplete fields. Concentration in special-program/application fields warns against global deletion. The complete inventory is supplied as a table; the top-20 plot is not the whole audit.
+>>>>>>> origin/main
 
 ## Part E - Theory
 
@@ -80,11 +96,19 @@ Before encoding: 1,345,310 terminal rows and 12 selected attributes. After repre
 
 For two independent groups A and B, estimate delta = mean(A)-mean(B). A denotes Charged Off for numeric comparisons and 60 months for the term comparison. Sample means describe these groups; a population estimand requires an assumed repeatable sampling mechanism. All tests are observational.
 
+<<<<<<< HEAD
 **Welch t:** Let n_A,n_B be counts and s_A²,s_B² sample variances (divisor n-1). standard error (SE) = sqrt(s_A²/n_A + s_B²/n_B). t = delta/SE under H0 delta=0. Degrees of freedom nu = (u+v)²/[u²/(n_A-1)+v²/(n_B-1)], where u=s_A²/n_A and v=s_B²/n_B. The two-sided p-value is 2*P(T_nu >= |t|); the 95% interval is delta +/- t_(.975,nu)*SE. It allows unequal variances but still requires independent observations and a reasonable mean sampling approximation. It is not a normality test. Large groups do not excuse extreme leverage or selection bias.
 
 **Two-proportion z:** x_A and x_B count Charged Off loans, n_A and n_B include only observed terminal loans of the given term. p_hat_A=x_A/n_A, p_hat_B=x_B/n_B. Under equal proportions use p_pool=(x_A+x_B)/(n_A+n_B). SE0=sqrt[p_pool*(1-p_pool)*(1/n_A+1/n_B)]. z=(p_hat_A-p_hat_B)/SE0; p=2*P(Z>=|z|). The large-sample confidence interval instead uses SE=sqrt[p_hat_A*(1-p_hat_A)/n_A+p_hat_B*(1-p_hat_B)/n_B]. The null-pooled SE is not reused for the interval. Expected successes/failures must be adequate; the implementation rejects expected counts below five. df is not applicable for the standard normal reference. Without continuity correction, z² equals the 2x2 Pearson chi-square statistic, checked in code and tests.
 
 **Chi-square:** O_ij is the observed grade-outcome count; E_ij = row_i_total * column_j_total / N. Sum (O-E)²/E to obtain chi-square. Under independence the approximate reference has (r-1)*(c-1) degrees of freedom, six for seven grades and two outcomes. The p-value is the upper-tail probability. This tail convention detects any association and is not a directional claim that every grade's event rate rises. Cramer's V = sqrt(chi-square/[N*min(r-1,c-1)]); here min=1. V measures association magnitude without a sign. A percentile interval from 1,000 seeded multinomial resamples of the observed cell proportions describes independent and identically distributed (IID) sampling uncertainty; it is an extension and does not correct dependence or selection. Grade-specific proportions remain necessary for interpretation.
+=======
+**Welch t:** Let n_A,n_B be counts and s_A²,s_B² sample variances (divisor n-1). SE = sqrt(s_A²/n_A + s_B²/n_B). t = delta/SE under H0 delta=0. Degrees of freedom nu = (u+v)²/[u²/(n_A-1)+v²/(n_B-1)], where u=s_A²/n_A and v=s_B²/n_B. The two-sided p-value is 2*P(T_nu >= |t|); the 95% interval is delta +/- t_(.975,nu)*SE. It allows unequal variances but still requires independent observations and a reasonable mean sampling approximation. It is not a normality test. Large groups do not excuse extreme leverage or selection bias.
+
+**Two-proportion z:** x_A and x_B count Charged Off loans, n_A and n_B include only observed terminal loans of the given term. p_hat_A=x_A/n_A, p_hat_B=x_B/n_B. Under equal proportions use p_pool=(x_A+x_B)/(n_A+n_B). SE0=sqrt[p_pool*(1-p_pool)*(1/n_A+1/n_B)]. z=(p_hat_A-p_hat_B)/SE0; p=2*P(Z>=|z|). The large-sample confidence interval instead uses SE=sqrt[p_hat_A*(1-p_hat_A)/n_A+p_hat_B*(1-p_hat_B)/n_B]. The null-pooled SE is not reused for the interval. Expected successes/failures must be adequate; the implementation rejects expected counts below five. df is not applicable for the standard normal reference. Without continuity correction, z² equals the 2x2 Pearson chi-square statistic, checked in code and tests.
+
+**Chi-square:** O_ij is the observed grade-outcome count; E_ij = row_i_total * column_j_total / N. Sum (O-E)²/E to obtain chi-square. Under independence the approximate reference has (r-1)*(c-1) degrees of freedom, six for seven grades and two outcomes. The p-value is the upper-tail probability. This tail convention detects any association and is not a directional claim that every grade's event rate rises. Cramer's V = sqrt(chi-square/[N*min(r-1,c-1)]); here min=1. V measures association magnitude without a sign. A percentile interval from 1,000 seeded multinomial resamples of the observed cell proportions describes IID sampling uncertainty; it is an extension and does not correct dependence or selection. Grade-specific proportions remain necessary for interpretation.
+>>>>>>> origin/main
 
 **Holm:** Sort four p-values p_(1)<=...<=p_(4), multiply each by 4,3,2,1 respectively, then apply cumulative maxima and cap at one. Map adjusted values back to original questions. This addresses repeated testing; it does not make overlapping grade/rate associations independent. Intervals remain ordinary marginal intervals.
 
@@ -95,7 +119,11 @@ For two independent groups A and B, estimate delta = mean(A)-mean(B). A denotes 
 
 ## Part F - Actual computed results
 
+<<<<<<< HEAD
 | Question | n (CO/FP or total) | Estimate | 95% confidence interval (CI) | Statistic | df | p | Practical conclusion |
+=======
+| Question | n (CO/FP or total) | Estimate | 95% CI | Statistic | df | p | Practical conclusion |
+>>>>>>> origin/main
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | int_rate | 268,559 / 1,076,751 | 3.08743 | [3.06698, 3.10787] | 295.97 | 390,130 | < 2.23e-308 (floating-point underflow) | CI beyond positive threshold |
 | dti | 268,488 / 1,076,448 | 2.35957 | [2.31027, 2.40886] | 93.8212 | 390,672 | < 2.23e-308 (floating-point underflow) | CI beyond positive threshold |
@@ -254,8 +282,11 @@ Run scripts/run_all.py for the full scan and figures, scripts/generate_reports.p
 ## Additional source-quality review
 
 The source contains 32 total-funded footer records and 1 policy-section separator, all with missing loan amount/status; these are not loans and are excluded from every test. There are 2,260,668 loan records. Two observed DTI values are negative and 135 equal 999; their exact semantics are unverified. Primary inference retains them transparently. Excluding the two negative DTI values gives difference 2.35953, CI [2.31024, 2.40882], leaving the interpretation unchanged. There are 1,667 zero incomes and 7,343 utilisation values above 100; these are flagged, not automatically deleted. No negative income was observed.
+<<<<<<< HEAD
 
 
 ## Reading help
 
 [Acronym directory](acronym_directory.md) expands statistical shorthand. [Plain-language attribute guide](attributes_plain_language.md) explains the selected variables and inventories all source fields.
+=======
+>>>>>>> origin/main
