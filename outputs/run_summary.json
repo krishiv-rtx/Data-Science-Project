@@ -1,0 +1,10 @@
+{
+  "completed_tests": 4,
+  "elapsed_seconds": 292.97093772888184,
+  "raw_rows": 2260701,
+  "terminal_rows": 1345310,
+  "encoded_cells": 53763200,
+  "source_file_unchanged": true,
+  "random_seed": 558,
+  "mode": "full CSV scan, compact aggregate output"
+}

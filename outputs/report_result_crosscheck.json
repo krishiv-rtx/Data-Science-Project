@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checks": [
+    "int_rate: statistic, degrees of freedom and interval independently agree",
+    "dti: statistic, degrees of freedom and interval independently agree",
+    "grade: contingency statistic, degrees of freedom, expected counts and association magnitude agree",
+    "term: event denominators, proportion contrast and chi-square equivalence agree",
+    "All four report estimates and confidence intervals match computed values and displayed units"
+  ],
+  "unchanged_empirical_results": true
+}

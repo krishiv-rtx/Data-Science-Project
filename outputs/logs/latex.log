@@ -1,0 +1,85 @@
+note: Running TeX ...
+note: Rerunning TeX because "final_report.aux" changed ...
+note: Running xdvipdfmx ...
+note: Writing `final_report.log` (20.1572265625 KiB)
+note: Writing `final_report.pdf` (416.6552734375 KiB)
+note: Skipped writing 2 intermediate files (use --keep-intermediates to keep them)
+
+Fontconfig error: Cannot load default config file: No such file: (null)
+warning: final_report.tex:108: Underfull \hbox (badness 1082) in paragraph at lines 108--108
+warning: final_report.tex:108: Underfull \hbox (badness 1783) in paragraph at lines 108--108
+warning: final_report.tex:108: Underfull \hbox (badness 2635) in paragraph at lines 108--108
+warning: final_report.tex:115: Underfull \hbox (badness 1946) in paragraph at lines 115--115
+warning: final_report.tex:115: Underfull \hbox (badness 1097) in paragraph at lines 115--115
+warning: final_report.tex:117: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: final_report.tex:119: Underfull \hbox (badness 1789) in paragraph at lines 118--119
+warning: final_report.tex:156: Underfull \hbox (badness 2856) in paragraph at lines 156--156
+warning: final_report.tex:156: Underfull \hbox (badness 3058) in paragraph at lines 156--156
+warning: final_report.tex:156: Underfull \hbox (badness 10000) in paragraph at lines 156--156
+warning: final_report.tex:156: Underfull \hbox (badness 7451) in paragraph at lines 156--156
+warning: final_report.tex:158: Underfull \vbox (badness 2035) has occurred while \output is active
+warning: final_report.tex:174: Underfull \hbox (badness 2856) in paragraph at lines 174--174
+warning: final_report.tex:174: Underfull \hbox (badness 3058) in paragraph at lines 174--174
+warning: final_report.tex:174: Underfull \hbox (badness 1460) in paragraph at lines 174--174
+warning: final_report.tex:174: Underfull \hbox (badness 5022) in paragraph at lines 174--174
+warning: final_report.tex:174: Underfull \hbox (badness 7451) in paragraph at lines 174--174
+warning: final_report.tex:192: Underfull \hbox (badness 2027) in paragraph at lines 192--192
+warning: final_report.tex:192: Underfull \hbox (badness 1215) in paragraph at lines 192--192
+warning: final_report.tex:192: Underfull \hbox (badness 2042) in paragraph at lines 192--192
+warning: final_report.tex:192: Underfull \hbox (badness 1418) in paragraph at lines 192--192
+warning: final_report.tex:192: Underfull \hbox (badness 1708) in paragraph at lines 192--192
+warning: final_report.tex:211: Underfull \hbox (badness 4779) in paragraph at lines 211--211
+warning: final_report.tex:211: Underfull \hbox (badness 5022) in paragraph at lines 211--211
+warning: final_report.tex:211: Underfull \hbox (badness 10000) in paragraph at lines 211--211
+warning: final_report.tex:211: Underfull \hbox (badness 6047) in paragraph at lines 211--211
+warning: final_report.tex:211: Underfull \hbox (badness 1596) in paragraph at lines 211--211
+warning: final_report.tex:214: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: final_report.tex:226: Underfull \hbox (badness 4660) in paragraph at lines 225--226
+warning: final_report.tex:226: Underfull \hbox (badness 1838) in paragraph at lines 225--226
+warning: final_report.tex:226: Underfull \hbox (badness 10000) in paragraph at lines 225--226
+warning: final_report.tex:226: Underfull \hbox (badness 10000) in paragraph at lines 225--226
+warning: final_report.tex:226: Underfull \hbox (badness 10000) in paragraph at lines 225--226
+warning: final_report.tex:226: Underfull \hbox (badness 10000) in paragraph at lines 225--226
+warning: final_report.tex:226: Underfull \hbox (badness 10000) in paragraph at lines 225--226
+warning: final_report.tex:226: Underfull \hbox (badness 10000) in paragraph at lines 225--226
+warning: final_report.tex:246: Underfull \hbox (badness 10000) in paragraph at lines 227--246
+warning: final_report.tex:246: Underfull \hbox (badness 10000) in paragraph at lines 227--246
+warning: final_report.tex:108: Underfull \hbox (badness 1082) in paragraph at lines 108--108
+warning: final_report.tex:108: Underfull \hbox (badness 1783) in paragraph at lines 108--108
+warning: final_report.tex:108: Underfull \hbox (badness 2635) in paragraph at lines 108--108
+warning: final_report.tex:115: Underfull \hbox (badness 1946) in paragraph at lines 115--115
+warning: final_report.tex:115: Underfull \hbox (badness 1097) in paragraph at lines 115--115
+warning: final_report.tex:117: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: final_report.tex:119: Underfull \hbox (badness 1789) in paragraph at lines 118--119
+warning: final_report.tex:156: Underfull \hbox (badness 2856) in paragraph at lines 156--156
+warning: final_report.tex:156: Underfull \hbox (badness 3058) in paragraph at lines 156--156
+warning: final_report.tex:156: Underfull \hbox (badness 10000) in paragraph at lines 156--156
+warning: final_report.tex:156: Underfull \hbox (badness 7451) in paragraph at lines 156--156
+warning: final_report.tex:158: Underfull \vbox (badness 2035) has occurred while \output is active
+warning: final_report.tex:174: Underfull \hbox (badness 2856) in paragraph at lines 174--174
+warning: final_report.tex:174: Underfull \hbox (badness 3058) in paragraph at lines 174--174
+warning: final_report.tex:174: Underfull \hbox (badness 1460) in paragraph at lines 174--174
+warning: final_report.tex:174: Underfull \hbox (badness 5022) in paragraph at lines 174--174
+warning: final_report.tex:174: Underfull \hbox (badness 7451) in paragraph at lines 174--174
+warning: final_report.tex:192: Underfull \hbox (badness 2027) in paragraph at lines 192--192
+warning: final_report.tex:192: Underfull \hbox (badness 1215) in paragraph at lines 192--192
+warning: final_report.tex:192: Underfull \hbox (badness 2042) in paragraph at lines 192--192
+warning: final_report.tex:192: Underfull \hbox (badness 1418) in paragraph at lines 192--192
+warning: final_report.tex:192: Underfull \hbox (badness 1708) in paragraph at lines 192--192
+warning: final_report.tex:211: Underfull \hbox (badness 4779) in paragraph at lines 211--211
+warning: final_report.tex:211: Underfull \hbox (badness 5022) in paragraph at lines 211--211
+warning: final_report.tex:211: Underfull \hbox (badness 10000) in paragraph at lines 211--211
+warning: final_report.tex:211: Underfull \hbox (badness 6047) in paragraph at lines 211--211
+warning: final_report.tex:211: Underfull \hbox (badness 1596) in paragraph at lines 211--211
+warning: final_report.tex:214: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: final_report.tex:226: Underfull \hbox (badness 4660) in paragraph at lines 225--226
+warning: final_report.tex:226: Underfull \hbox (badness 1838) in paragraph at lines 225--226
+warning: final_report.tex:226: Underfull \hbox (badness 10000) in paragraph at lines 225--226
+warning: final_report.tex:226: Underfull \hbox (badness 10000) in paragraph at lines 225--226
+warning: final_report.tex:226: Underfull \hbox (badness 10000) in paragraph at lines 225--226
+warning: final_report.tex:226: Underfull \hbox (badness 10000) in paragraph at lines 225--226
+warning: final_report.tex:226: Underfull \hbox (badness 10000) in paragraph at lines 225--226
+warning: final_report.tex:226: Underfull \hbox (badness 10000) in paragraph at lines 225--226
+warning: final_report.tex:246: Underfull \hbox (badness 10000) in paragraph at lines 227--246
+warning: final_report.tex:246: Underfull \hbox (badness 10000) in paragraph at lines 227--246
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.

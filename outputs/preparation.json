@@ -1,0 +1,19 @@
+{
+  "loan_status_whitespace": 0,
+  "grade_whitespace": 0,
+  "term_whitespace": 2260668,
+  "home_ownership_whitespace": 0,
+  "verification_status_whitespace": 0,
+  "purpose_whitespace": 0,
+  "application_type_whitespace": 0,
+  "loan_amnt_parse_failures": 0,
+  "int_rate_parse_failures": 0,
+  "dti_parse_failures": 0,
+  "annual_inc_parse_failures": 0,
+  "fico_range_low_parse_failures": 0,
+  "revol_util_parse_failures": 0,
+  "issue_date_parse_failures": 0,
+  "rows_before": 2260701,
+  "terminal_rows": 1345310,
+  "excluded_nonterminal": 915391
+}
