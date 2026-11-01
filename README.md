@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-# NullPointer | LendingClub repayment outcomes
+**CSE558 Data Science · IIIT-Delhi · Monsoon 2026**
 
-**CSE558 Data Science Â· IIIT-Delhi Â· Monsoon 2026**
-
-[Project repository](https://github.com/krishiv-rtx/Data-Science-Project) Â· [Final PDF report](reports/final_report.pdf) Â· [Statistical methodology](reports/methodology_and_results.md) Â· [Technical explanation](reports/detailed_technical_report.md)
+[Project repository](https://github.com/krishiv-rtx/Data-Science-Project) · [Final PDF report](reports/final_report.pdf) · [Statistical methodology](reports/methodology_and_results.md) · [Technical explanation](reports/detailed_technical_report.md)
 
 ## Start here: understand the project in one pass
 
@@ -107,112 +104,124 @@ Generated caches and temporary PDF-review files are omitted below. The raw CSV i
 
 ```text
 lendingclub-midterm-project/
-â”œâ”€â”€ data/
-â”‚   â”œâ”€â”€ processed/
-â”‚   â”‚   â””â”€â”€ README.md
-â”‚   â””â”€â”€ raw/
-â”‚       â””â”€â”€ README.md
-â”œâ”€â”€ figures/
-â”‚   â”œâ”€â”€ eda/
-â”‚   â”‚   â”œâ”€â”€ category_rates.png
-â”‚   â”‚   â”œâ”€â”€ income_and_loan_amount.png
-â”‚   â”‚   â”œâ”€â”€ income_dti.png
-â”‚   â”‚   â”œâ”€â”€ income_transform.png
-â”‚   â”‚   â”œâ”€â”€ loan_purposes.png
-â”‚   â”‚   â”œâ”€â”€ missingness.png
-â”‚   â”‚   â”œâ”€â”€ outcome_boxplots.png
-â”‚   â”‚   â””â”€â”€ status.png
-â”‚   â””â”€â”€ inference/
-â”‚       â”œâ”€â”€ effect_intervals.png
-â”‚       â””â”€â”€ group_mean_comparison.png
-â”œâ”€â”€ notebooks/
-â”‚   â”œâ”€â”€ 01_data_audit.ipynb
-â”‚   â”œâ”€â”€ 02_data_preparation_and_eda.ipynb
-â”‚   â””â”€â”€ 03_statistical_inference.ipynb
-â”œâ”€â”€ outputs/
-â”‚   â”œâ”€â”€ logs/
-â”‚   â”œâ”€â”€ tables/
-â”‚   â”‚   â”œâ”€â”€ before_after.csv
-â”‚   â”‚   â”œâ”€â”€ cohort_term_rates.csv
-â”‚   â”‚   â”œâ”€â”€ explainer_plot_counts.json
-â”‚   â”‚   â”œâ”€â”€ feature_audit.csv
-â”‚   â”‚   â”œâ”€â”€ grade_outcome.csv
-â”‚   â”‚   â”œâ”€â”€ group_summaries.csv
-â”‚   â”‚   â”œâ”€â”€ hypothesis_tests.csv
-â”‚   â”‚   â”œâ”€â”€ missingness.csv
-â”‚   â”‚   â”œâ”€â”€ numeric_summary.csv
-â”‚   â”‚   â”œâ”€â”€ outliers.csv
-â”‚   â”‚   â”œâ”€â”€ profile_comparison.csv
-â”‚   â”‚   â”œâ”€â”€ profile_numeric_comparison.csv
-â”‚   â”‚   â”œâ”€â”€ profile_status_comparison.csv
-â”‚   â”‚   â””â”€â”€ term_outcome.csv
-â”‚   â”œâ”€â”€ dataset_audit.json
-â”‚   â”œâ”€â”€ encoded_size.json
-â”‚   â”œâ”€â”€ pdf_validation.json
-â”‚   â”œâ”€â”€ pdf_visual_review.json
-â”‚   â”œâ”€â”€ preparation.json
-â”‚   â”œâ”€â”€ quality_flags.json
-â”‚   â”œâ”€â”€ report_result_crosscheck.json
-â”‚   â”œâ”€â”€ results.json
-â”‚   â”œâ”€â”€ run_summary.json
-â”‚   â”œâ”€â”€ sensitivity.json
-â”‚   â””â”€â”€ validation.json
-â”œâ”€â”€ reports/
-â”‚   â”œâ”€â”€ acronym_directory.md
-â”‚   â”œâ”€â”€ analysis_plan.md
-â”‚   â”œâ”€â”€ attributes_plain_language.md
-â”‚   â”œâ”€â”€ data_dictionary.md
-â”‚   â”œâ”€â”€ detailed_technical_report.md
-â”‚   â”œâ”€â”€ final_report.pdf
-â”‚   â”œâ”€â”€ final_report.tex
-â”‚   â”œâ”€â”€ limitations_and_future_work.md
-â”‚   â”œâ”€â”€ methodology_and_results.md
-â”‚   â”œâ”€â”€ references.md
-â”‚   â”œâ”€â”€ syllabus_mapping.md
-â”‚   â”œâ”€â”€ validation_summary.md
-â”‚   â””â”€â”€ viva_questions_and_answers.md
-â”œâ”€â”€ scripts/
-â”‚   â”œâ”€â”€ check_quality.py
-â”‚   â”œâ”€â”€ check_report_results.py
-â”‚   â”œâ”€â”€ compile_report.py
-â”‚   â”œâ”€â”€ create_notebooks.py
-â”‚   â”œâ”€â”€ create_viva.py
-â”‚   â”œâ”€â”€ execute_notebooks.py
-â”‚   â”œâ”€â”€ generate_explainer_figures.py
-â”‚   â”œâ”€â”€ generate_reports.py
-â”‚   â”œâ”€â”€ generate_summary_figures.py
-â”‚   â”œâ”€â”€ package_project.py
-â”‚   â”œâ”€â”€ reproduce.py
-â”‚   â”œâ”€â”€ run_all.py
-â”‚   â””â”€â”€ validate_project.py
-â”œâ”€â”€ source_materials/
-â”‚   â”œâ”€â”€ CSE558_Project_Report_Guidelines.pdf
-â”‚   â”œâ”€â”€ CSE558_Project_Report_Template.pdf
-â”‚   â”œâ”€â”€ CSE558_Project_Report_Template.tex
-â”‚   â”œâ”€â”€ LendingClub_Dataset_Profile_Report.pdf
-â”‚   â””â”€â”€ master prompt.txt
-â”œâ”€â”€ src/
-â”‚   â”œâ”€â”€ __init__.py
-â”‚   â”œâ”€â”€ config.py
-â”‚   â”œâ”€â”€ data_loading.py
-â”‚   â”œâ”€â”€ data_quality.py
-â”‚   â”œâ”€â”€ eda.py
-â”‚   â”œâ”€â”€ feature_audit.py
-â”‚   â”œâ”€â”€ preprocessing.py
-â”‚   â”œâ”€â”€ reader_guide.py
-â”‚   â”œâ”€â”€ report_presentation.py
-â”‚   â”œâ”€â”€ reporting.py
-â”‚   â””â”€â”€ statistical_tests.py
-â”œâ”€â”€ tests/
-â”‚   â”œâ”€â”€ test_data_quality.py
-â”‚   â”œâ”€â”€ test_preprocessing.py
-â”‚   â””â”€â”€ test_statistical_tests.py
-â”œâ”€â”€ .gitignore
-â”œâ”€â”€ FILE_MANIFEST.json
-â”œâ”€â”€ LICENSE_OR_DATA_NOTICE.md
-â”œâ”€â”€ README.md
-â””â”€â”€ requirements.txt
-```
+│
+├── data/
+│   ├── processed/
+│   │   └── README.md
+│   └── raw/
+│       └── README.md
+│
+├── figures/
+│   ├── eda/
+│   │   ├── category_rates.png
+│   │   ├── income_and_loan_amount.png
+│   │   ├── income_dti.png
+│   │   ├── income_transform.png
+│   │   ├── loan_purposes.png
+│   │   ├── missingness.png
+│   │   ├── outcome_boxplots.png
+│   │   └── status.png
+│   │
+│   └── inference/
+│       ├── effect_intervals.png
+│       └── group_mean_comparison.png
+│
+├── notebooks/
+│   ├── 01_data_audit.ipynb
+│   ├── 02_data_preparation_and_eda.ipynb
+│   └── 03_statistical_inference.ipynb
+│
+├── outputs/
+│   ├── logs/
+│   │
+│   ├── tables/
+│   │   ├── before_after.csv
+│   │   ├── cohort_term_rates.csv
+│   │   ├── explainer_plot_counts.json
+│   │   ├── feature_audit.csv
+│   │   ├── grade_outcome.csv
+│   │   ├── group_summaries.csv
+│   │   ├── hypothesis_tests.csv
+│   │   ├── missingness.csv
+│   │   ├── numeric_summary.csv
+│   │   ├── outliers.csv
+│   │   ├── profile_comparison.csv
+│   │   ├── profile_numeric_comparison.csv
+│   │   ├── profile_status_comparison.csv
+│   │   └── term_outcome.csv
+│   │
+│   ├── dataset_audit.json
+│   ├── encoded_size.json
+│   ├── pdf_validation.json
+│   ├── pdf_visual_review.json
+│   ├── preparation.json
+│   ├── quality_flags.json
+│   ├── report_result_crosscheck.json
+│   ├── results.json
+│   ├── run_summary.json
+│   ├── sensitivity.json
+│   └── validation.json
+│
+├── reports/
+│   ├── acronym_directory.md
+│   ├── analysis_plan.md
+│   ├── attributes_plain_language.md
+│   ├── data_dictionary.md
+│   ├── detailed_technical_report.md
+│   ├── final_report.pdf
+│   ├── final_report.tex
+│   ├── limitations_and_future_work.md
+│   ├── methodology_and_results.md
+│   ├── references.md
+│   ├── syllabus_mapping.md
+│   ├── validation_summary.md
+│   └── viva_questions_and_answers.md
+│
+├── scripts/
+│   ├── check_quality.py
+│   ├── check_report_results.py
+│   ├── compile_report.py
+│   ├── create_notebooks.py
+│   ├── create_viva.py
+│   ├── execute_notebooks.py
+│   ├── generate_explainer_figures.py
+│   ├── generate_reports.py
+│   ├── generate_summary_figures.py
+│   ├── package_project.py
+│   ├── reproduce.py
+│   ├── run_all.py
+│   └── validate_project.py
+│
+├── source_materials/
+│   ├── CSE558_Project_Report_Guidelines.pdf
+│   ├── CSE558_Project_Report_Template.pdf
+│   ├── CSE558_Project_Report_Template.tex
+│   ├── LendingClub_Dataset_Profile_Report.pdf
+│   └── master prompt.txt
+│
+├── src/
+│   ├── __init__.py
+│   ├── config.py
+│   ├── data_loading.py
+│   ├── data_quality.py
+│   ├── eda.py
+│   ├── feature_audit.py
+│   ├── preprocessing.py
+│   ├── reader_guide.py
+│   ├── report_presentation.py
+│   ├── reporting.py
+│   └── statistical_tests.py
+│
+├── tests/
+│   ├── test_data_quality.py
+│   ├── test_preprocessing.py
+│   └── test_statistical_tests.py
+│
+├── .gitignore
+├── FILE_MANIFEST.json
+├── LICENSE_OR_DATA_NOTICE.md
+├── README.md
+└── requirements.txt
 
 ## Installation, execution and audit details
 =======
@@ -265,8 +274,6 @@ Install MiKTeX/TeX Live with `pdflatex`, then run `python scripts/compile_report
 
 ## Known limits and submission edits
 
-<<<<<<< HEAD
-Lectures 1-12, quiz materials and practice problems were absent; exact syllabus coverage and the 80% target are unverified. Supply those to complete the course mapping. The report includes the supplied institute emails and project repository URL. The contribution column has been removed as requested. No Git repository was created. Review selection, censoring, missingness, dependence and subjective thresholds in the limitations document.
 =======
 Lectures 1-12, quiz materials and practice problems were absent; exact syllabus coverage and the 80% target are unverified. Supply those to complete the course mapping. The report includes editable email/contribution and code URL fields, because those were not supplied. Replace them with true group details and your repository URL before submission. No Git repository was created. Review selection, censoring, missingness, dependence and subjective thresholds in the limitations document.
 >>>>>>> origin/main
@@ -325,9 +332,3 @@ File-not-found: supply a quoted absolute path with `--data` or place the input i
 | purpose | Stated reason for borrowing | For example, debt consolidation; self-reported category. |
 | application_type | Individual or joint application | Helps interpret why joint-applicant fields may be missing. |
 | charged_off | Derived 1 for Charged Off, 0 for Fully Paid | Defined only in the selected terminal-outcome sample. |
-
-## Rebuilding the replacement plots
-
-Run `python scripts/generate_explainer_figures.py --data "../accepted_2007_to_2018Q4.csv"` once to create the aggregate histogram and purpose counts. Later runs can omit `--data` to use `outputs/tables/explainer_plot_counts.json`. This cache stores bin counts and category totals, not borrower rows. Then regenerate reports with `python scripts/generate_reports.py` and compile the PDF.
-=======
->>>>>>> origin/main
